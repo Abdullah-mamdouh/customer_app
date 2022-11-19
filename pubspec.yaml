@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.1.1
   google_maps_flutter: ^2.2.0
+  flutter_screenutil: ^5.5.4
 #  clip_shadow:
 
 dev_dependencies:

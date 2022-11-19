@@ -3,6 +3,7 @@ import 'package:foodio/screens/card_screen/card_page.dart';
 import 'package:foodio/screens/home_screen/home_page.dart';
 import 'package:foodio/screens/resturant_screen/resturant_page.dart';
 import 'package:foodio/screens/wallet_screen/wallet_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,21 +15,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: ResturantPage()
+    return
+    //   MaterialApp(
+    //   title: 'Flutter Demo',
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.blue,
+    //   ),
+    //   home: HomePage()
+    // );
+    ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context , child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          // You can use the library anywhere in the app even in theme
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+           // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+          ),
+          home: child,
+        );
+      },
+      child:  HomePage(),
     );
   }
 }

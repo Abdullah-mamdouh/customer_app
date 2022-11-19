@@ -1,14 +1,14 @@
-
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodio/const/styles.dart';
 import 'package:foodio/screens/home_screen/widgets/popular_food.dart';
+import 'package:foodio/screens/resturant_screen/resturant_page.dart';
 
 import '../../const/colors.dart';
 import '../../utils/helper.dart';
 import '../../widgets/customNavBar.dart';
 import '../../widgets/searchBar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = "/homeScreen";
@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   CarouselController buttonCarouselController = CarouselController();
 
-
   int _index = 0;
 
   @override
@@ -28,9 +27,45 @@ class _HomePageState extends State<HomePage> {
     buttonCarouselController.stopAutoPlay();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Restuarants",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 19.sp
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search_rounded,
+                color: Colors.black,
+                size: 25,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.location_city_rounded,
+                color: Colors.black,
+                size: 25,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.black,
+                size: 25,
+              )),
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -38,36 +73,34 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
+                  // SizedBox(
+                  //   height: 20,
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(
+                  //     horizontal: 20,
+                  //   ),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                  //       Text(
+                  //         "Good morning Akila!",
+                  //         style: Helper.getTheme(context).headline5,
+                  //       ),
+                  //       Image.asset(Helper.getAssetName("cart.png", "virtual"))
+                  //     ],
+                  //   ),
+                  // ),
+
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(
+                  //     horizontal: 20,
+                  //   ),
+                  //   child: Text("Deilivering to"),
+                  // ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Good morning Akila!",
-                          style: Helper.getTheme(context).headline5,
-                        ),
-                        Image.asset(Helper.getAssetName("cart.png", "virtual"))
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Text("Deilivering to"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 20.w,
                     ),
                     child: DropdownButtonHideUnderline(
                       child: SizedBox(
@@ -78,12 +111,22 @@ class _HomePageState extends State<HomePage> {
                             DropdownMenuItem(
                               child: Row(
                                 children: [
-                                  Icon(Icons.location_on,color: AppColor.orange,),
-                                  const SizedBox(width: 3,),
-                                  Text('20 Pavelian Park ',
-                                    style: TextStyle(color:AppColor.orange, fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                  ),)
+                                  Icon(
+                                    Icons.location_on_outlined,
+                                    color: Colors.black,
+                                    size: 25,
+                                  ),
+                                  const SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    '20 Pavelian Park de moad',
+                                    style: TextStyle(
+                                      color: AppColor.welcomeColor,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
                                 ],
                               ),
                               value: "Pavelian Park",
@@ -99,8 +142,48 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 5.h,),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                    ),
+                    child: Text("Hello Mohamed,",
+                        style: TextStyle(
+                            color: AppColor.welcomeColor,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500)),
+                  ),
                   SizedBox(
                     height: 20,
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Find your food",
+                            style: TextStyle(
+                                color: AppColor.heederColor,
+                                fontSize: 22.sp,
+                                fontWeight: FontWeight.w700)),
+                        Image.asset(Helper.getAssetName("cart.png", "virtual"))
+                      ],
+                    ),
+                  ),
+                  // Padding(
+                  //   padding:  EdgeInsets.symmetric(
+                  //     horizontal: 20,
+                  //   ),
+                  //   child: Text("Find your food" ,style: TextStyle(
+                  //       color: AppColor.heederColor,
+                  //       fontSize: 22.sp,
+                  //       fontWeight: FontWeight.w700
+                  //   )),
+                  // ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   /*SearchBar(
                     title: "Search Food",
@@ -120,12 +203,27 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           "Categories",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headline5!.copyWith(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                //fontFamily: 'Metropolis',
+                              ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("View all",
-                          style: TextStyle(color: AppColor.orange, fontSize: 14,fontWeight: FontWeight.w400),))
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "View all",
+                              style: TextStyle(
+                                  color: AppColor.welcomeColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                            ))
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Container(
                     width: double.infinity,
@@ -144,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                             name: "Offers",
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 17.w,
                           ),
                           CategoryCard(
                             image: Image.asset(
@@ -154,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                             name: "Sri Lankan",
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 17.w,
                           ),
                           CategoryCard(
                             image: Image.asset(
@@ -164,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                             name: "Italian",
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 17.w,
                           ),
                           CategoryCard(
                             image: Image.asset(
@@ -174,14 +272,14 @@ class _HomePageState extends State<HomePage> {
                             name: "Indian",
                           ),
                           SizedBox(
-                            width: 10,
+                            width: 17.w,
                           ),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -189,21 +287,38 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Popular Restaurants",
-                          style: Helper.getTheme(context).headline5,
+                          "Popular Food Nearby",
+                          style: Helper.getTheme(context).headline5!.copyWith(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                //fontFamily: 'Metropolis',
+                              ),
                         ),
-                        TextButton(onPressed: () {}, child: Text("View all",
-                          style: TextStyle(color: AppColor.orange, fontSize: 14,fontWeight: FontWeight.w400),))
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "View all",
+                              style: TextStyle(
+                                  color: AppColor.welcomeColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                            ))
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5.h,
                   ),
-                  SizedBox(
-                      height: 145,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: SizedBox(
+                      height: 105.h,
                       width: MediaQuery.of(context).size.width * 0.9,
-                      child:PopularFood()),
+                      child: PopularFood(),
+                    ),
+                  ),
+
 /*
                   RestaurantCard(
                     image: Image.asset(
@@ -229,7 +344,7 @@ class _HomePageState extends State<HomePage> {
                   ),
 */
                   SizedBox(
-                    height: 50,
+                    height: 20.h,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -237,74 +352,306 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Most Popular",
-                          style: Helper.getTheme(context).headline5,
+                          "New Arrivals",
+                          style: Helper.getTheme(context).headline5!.copyWith(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                //fontFamily: 'Metropolis',
+                              ),
                         ),
                         TextButton(
-                          onPressed: () {},
-                          child: Text("View all",style: TextStyle(color: AppColor.orange,fontSize: 14,fontWeight: FontWeight.w400),),
-                        ),
+                            onPressed: () {},
+                            child: Text(
+                              "View all",
+                              style: TextStyle(
+                                  color: AppColor.welcomeColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                            ))
                       ],
                     ),
                   ),
+                  // SizedBox(
+                  //   height: 5.h,
+                  // ),
+                  //
+                  // Container(
+                  //   height: 210.h,
+                  //   width: double.infinity,
+                  //   padding: const EdgeInsets.only(left: 20),
+                  //   child: SingleChildScrollView(
+                  //     scrollDirection: Axis.horizontal,
+                  //     child: Row(
+                  //       children: [
+                  //         SizedBox(width: 20.w,),
+                  //         MostPopularCard(
+                  //           image: Image.asset(
+                  //             Helper.getAssetName("pizza4.png", "real"),
+                  //             fit: BoxFit.cover,
+                  //           ),
+                  //           name: "Cafe De Bambaa",
+                  //         ),
+                  //         SizedBox(
+                  //           width: 30,
+                  //         ),
+                  //         MostPopularCard(
+                  //           name: "Burger by Bella",
+                  //           image: Image.asset(
+                  //             Helper.getAssetName("dessert3.png", "real"),
+                  //             fit: BoxFit.cover,
+                  //           ),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  Container(
+                    height: 230.h,
+                    width: double.infinity,
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return NewArrivalsCard(
+                          name: "Hashim",
+                          image: "${Helper.getAssetName("pizza4.png", "real")}",
+                          location: '20 Pavelian Park',
+                          rate: "0 (0)",
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>  ResturantPage()),
+                            );
+                          },
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18.sp,
+                            color: Colors.black,
+                          ),
+                          widget: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: AppColor.welcomeColor,
+                                size: 22,
+                              ),
+                              const SizedBox(
+                                width: 3,
+                              ),
+                              Text(
+                                "0 (0)",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Offers For You",
+                          style: Helper.getTheme(context).headline5!.copyWith(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                //fontFamily: 'Metropolis',
+                              ),
+                        ),
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "View all",
+                              style: TextStyle(
+                                  color: AppColor.welcomeColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                            ))
+                      ],
+                    ),
                   ),
                   Container(
-                    height: 250,
+                    height: 230.h,
                     width: double.infinity,
-                    padding: const EdgeInsets.only(left: 20),
-                    child: SingleChildScrollView(
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
                       scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          MostPopularCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza4.png", "real"),
-                              fit: BoxFit.cover,
+                      shrinkWrap: true,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return NewArrivalsCard(
+                            name: "Red Chili Restaurant",
+                            image:
+                                "${Helper.getAssetName("pizza4.png", "real")}",
+                            location: 'Nasr Sp Bus Stand, Chatberii Pronce',
+                            rate: "0 (0)",
+                            onTap: () {},
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.sp,
+                              color: Colors.black,
                             ),
-                            name: "Cafe De Bambaa",
-                          ),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          MostPopularCard(
-                            name: "Burger by Bella",
-                            image: Image.asset(
-                              Helper.getAssetName("dessert3.png", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        ],
-                      ),
+                            widget: Padding(
+                              padding: EdgeInsets.only(right: 10.w),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "10off",
+                                    style: TextStyle(
+                                      color: AppColor.welcomeColor,
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: AppColor.welcomeColor,
+                                        size: 22,
+                                      ),
+                                      const SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        "0 (0.0)",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ));
+                      },
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Recent Items",
-                          style: Helper.getTheme(context).headline5,
+                          "Popular Restaurant",
+                          style: Helper.getTheme(context).headline5!.copyWith(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                                //fontFamily: 'Metropolis',
+                              ),
                         ),
                         TextButton(
-                          onPressed: () {},
-                          child: Text("View all",
-                            style: TextStyle(color: AppColor.orange, fontSize: 14,fontWeight: FontWeight.w400),),
-                        ),
+                            onPressed: () {},
+                            child: Text(
+                              "View all",
+                              style: TextStyle(
+                                  color: AppColor.welcomeColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500),
+                            ))
                       ],
                     ),
                   ),
+                  Container(
+                    height: 230.h,
+                    width: double.infinity,
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return NewArrivalsCard(
+                          name: "Flavours Restaurant",
+                          image: "${Helper.getAssetName("bakery.png", "real")}",
+                          location:
+                              '6129 Prince Muhammet ebn saad Chatberii Pronce',
+                          //rate: "4 (3.0)",
+                          onTap: () {},
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.sp,
+                            color: Colors.black,
+                          ),
+                          widget: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: AppColor.welcomeColor,
+                                size: 22,
+                              ),
+                              const SizedBox(
+                                width: 3,
+                              ),
+                              Text(
+                                "4 (3.0)",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Text(
+                      "All Restaurant",
+                      style: Helper.getTheme(context).headline5!.copyWith(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            //fontFamily: 'Metropolis',
+                          ),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 20.w,
                     ),
                     child: Column(
                       children: [
@@ -318,15 +665,30 @@ class _HomePageState extends State<HomePage> {
                               Helper.getAssetName("pizza3.png", "real"),
                               fit: BoxFit.cover,
                             ),
-                            name: "Mulberry Pizza by Josh",
+                            name: "Hashim",
                           ),
+                        ),
+                        SizedBox(
+                          height: 15.h,
                         ),
                         RecentItemCard(
                             image: Image.asset(
                               Helper.getAssetName("coffee.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
-                            name: "Barita"),
+                            name: "Hash1"),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        RecentItemCard(
+                            image: Image.asset(
+                              Helper.getAssetName("pizza.jpg", "real"),
+                              fit: BoxFit.cover,
+                            ),
+                            name: "egrftt"),
+                        SizedBox(
+                          height: 15.h,
+                        ),
                         RecentItemCard(
                             image: Image.asset(
                               Helper.getAssetName("pizza.jpg", "real"),
@@ -335,7 +697,6 @@ class _HomePageState extends State<HomePage> {
                             name: "Pizza Rush Hour"),
                       ],
                     ),
-
                   )
                 ],
               ),
@@ -364,7 +725,7 @@ class _HomePageState extends State<HomePage> {
           options: CarouselOptions(
             autoPlay: true,
             autoPlayCurve: Curves.fastOutSlowIn,
-            height: 120,
+            height: 150.h,
             enlargeCenterPage: true,
             viewportFraction: 0.8,
             pageSnapping: true,
@@ -376,31 +737,32 @@ class _HomePageState extends State<HomePage> {
               });
             },
           ),
-          items: List.generate(4,
-                  (index) => Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: index == 1
-                              ? Colors.white
-                              : Color.fromRGBO(187, 187, 187, 0.33),
-                          blurRadius: 5,
-                          spreadRadius: 5,
+          items: List.generate(
+              4,
+              (index) => Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: index == 1
+                                  ? Colors.white
+                                  : Color.fromRGBO(187, 187, 187, 0.33),
+                              blurRadius: 5,
+                              spreadRadius: 5,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    height: 120,
-                    width: (w - 20) * .7,
-                    child: Image.asset(
-                      'assets/images/real/western.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  /*Positioned(
+                        height: 200.h,
+                        width: (w - 20) * .7,
+                        child: Image.asset(
+                          'assets/images/real/western.png',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      /*Positioned(
                     bottom: 10,
                     left: 8,
                     child: Container(
@@ -417,8 +779,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   */
-                ],
-              )),
+                    ],
+                  )),
         ),
         SizedBox(
           height: 5,
@@ -464,10 +826,10 @@ class RecentItemCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(25),
           child: Container(
-            width: 80,
-            height: 80,
+            width: 100.w,
+            height: 90.h,
             child: _image,
           ),
         ),
@@ -476,57 +838,56 @@ class RecentItemCard extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            height: 100,
+            height: 90.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  _name!,
-                  style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700,color: AppColor.primary),
-                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Cafe",style:TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: AppColor.primary)),
-                    SizedBox(
-                      width: 5,
+                    Text(
+                      _name!,
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Text(
-                        ".",
-                        style: TextStyle(
-                          color: AppColor.orange,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Western Food"),
-                    SizedBox(
-                      width: 20,
-                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.favorite_border_rounded,
+                          size: 28,
+                          color: AppColor.subTiteColor,
+                        )),
                   ],
                 ),
-                Row(
+                Text(
+                 "gugol",
+                  style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.subTiteColor),
+                ),
+                Expanded(child: Row(
                   children: [
-                    Image.asset(
-                      Helper.getAssetName("star_filled.png", "virtual"),
+                    Icon(
+                      Icons.star,
+                      color: AppColor.welcomeColor,
+                      size: 25,
                     ),
-                    SizedBox(
-                      width: 5,
+                    const SizedBox(
+                      width: 3,
                     ),
                     Text(
-                      "4.9",
+                      "0 (0.0)",
                       style: TextStyle(
-                        color: AppColor.orange,
+                        color: Colors.black,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Text('(124) Ratings')
                   ],
-                )
+                ),)
               ],
             ),
           ),
@@ -566,7 +927,10 @@ class MostPopularCard extends StatelessWidget {
           children: [
             Text(
               _name!,
-              style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700,color: AppColor.primary),
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  color: AppColor.primary),
             ),
             SizedBox(
               width: 20,
@@ -583,13 +947,17 @@ class MostPopularCard extends StatelessWidget {
                 color: AppColor.orange,
               ),
             )
-
           ],
         ),
-
         Row(
           children: [
-            Text("Cafe",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: AppColor.primary),),
+            Text(
+              "Cafe",
+              style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: AppColor.primary),
+            ),
             SizedBox(
               width: 5,
             ),
@@ -607,9 +975,137 @@ class MostPopularCard extends StatelessWidget {
               width: 5,
             ),
             Text("Western Food"),
-
           ],
         )
+      ],
+    );
+  }
+}
+
+class NewArrivalsCard extends StatelessWidget {
+  const NewArrivalsCard({
+    Key? key,
+    @required String? name,
+    @required String? image,
+    @required String? location,
+    @required String? rate,
+    @required TextStyle? style,
+    @required Function()? onTap,
+    @required Widget? widget,
+  })  : _name = name,
+        _image = image,
+        _location = location,
+        _rate = rate,
+        _onTap = onTap,
+        _widget = widget,
+        _style = style,
+        super(key: key);
+
+  final String? _name;
+  final String? _image;
+  final String? _location;
+  final String? _rate;
+  final TextStyle? _style;
+  final void Function()? _onTap;
+  final Widget? _widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: _onTap,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Container(
+              width: 280.w,
+              height: 210.h,
+              decoration: BoxDecoration(
+                color: Color(0xffFFFFFF),
+                borderRadius: BorderRadius.circular(
+                  25,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(0, 0, 0, 0.25),
+                    offset: Offset(2, 2),
+                    blurRadius: 8.0,
+                    spreadRadius: 4, // Shadow position
+                  ),
+                ],
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    height: 125.h,
+                    width: 280.w,
+                    padding: EdgeInsets.all(1),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(_image!),
+                        fit: BoxFit.fill,
+                      ),
+                      color: Color(0xffFFFFFF),
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.25),
+                          offset: Offset(0, 0),
+                          blurRadius: 4.0,
+                          spreadRadius: 2, // Shadow position
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(top: 135.h, left: 10.w, bottom: 6.h),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(_name!,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: _style!),
+                        //SizedBox(height: 3.h,),
+
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on_rounded,
+                                color: AppColor.subTiteColor,
+                                size: 20,
+                              ),
+                              const SizedBox(
+                                width: 3,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  _location!,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: AppColor.subTiteColor,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        //SizedBox(height: 3.h,),
+                        _widget!,
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -722,22 +1218,33 @@ class CategoryCard extends StatelessWidget {
     return Column(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
           child: Container(
-            width: 100,
-            height: 100,
-            child: _image,
-          ),
+              width: 100.w,
+              height: 90.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(width: 6.w, color: AppColor.welcomeColor),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(5),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: _image,
+                ),
+              )),
         ),
         SizedBox(
           height: 5,
         ),
         Text(
           _name!,
-          style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700,color: AppColor.primary),
+          style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: AppColor.primary),
         ),
       ],
     );
   }
-
 }

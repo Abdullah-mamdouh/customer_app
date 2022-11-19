@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../const/colors.dart';
 
@@ -20,17 +21,17 @@ class _PopularFoodState extends State<PopularFood> {
           return Card(
             elevation: 5,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12)
+                borderRadius: BorderRadius.circular(15)
             ),
             child: Container(
               width: MediaQuery.of(context).size.width * 0.65,
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(5),
+              margin: EdgeInsets.all(5),
+              //padding: EdgeInsets.all(5),
               child: Row(
                 children: [
                   Container(
                     //height: 100,
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.27,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
@@ -38,7 +39,7 @@ class _PopularFoodState extends State<PopularFood> {
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(15),
 
                     ),
                   ),
@@ -64,26 +65,26 @@ class _PopularFoodState extends State<PopularFood> {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
-                              const SizedBox(
-                                height: 5,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500)),
+                               SizedBox(
+                                height:6.h,
                               ),
                               Text('Hungry PUppets',
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      color: AppColor.secondary,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w300)),
-                              const SizedBox(
-                                height: 8,
+                                      color: AppColor.subTiteColor,
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w400)),
+                               SizedBox(
+                                height: 8.h,
                               ),
-                              Text('\$29.00',
+                              Text('\$19.00',
                                   style: TextStyle(
-                                      color: AppColor.orange,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
+                                      color: AppColor.welcomeColor,
+                                      fontSize: 17.sp,
+                                      fontWeight: FontWeight.w700)),
                             ],
                           ),
                         ],

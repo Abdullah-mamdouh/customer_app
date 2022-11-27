@@ -22,7 +22,7 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
 
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage('assets/images/real/western.png'),
               )
             ),

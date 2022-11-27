@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../const/colors.dart';
 
@@ -22,11 +23,12 @@ class _HotelsOnGoogleMapCardWidgetState
             return Container(
               width: MediaQuery.of(context).size.width * 0.85,
               margin: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               child: Row(
                 children: [
                   Container(
                     //height: 100,
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.25,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
@@ -34,9 +36,8 @@ class _HotelsOnGoogleMapCardWidgetState
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(12),
-                        topLeft: Radius.circular(12),
+                      borderRadius: BorderRadius.circular(
+                        12
                       ),
                     ),
                   ),
@@ -57,46 +58,51 @@ class _HotelsOnGoogleMapCardWidgetState
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.bold)),
-                          const SizedBox(
-                            height: 2,
-                          ),
-                          Row(
+                          // const SizedBox(
+                          //   height: 2,
+                          // ),
+                          Expanded(child: Row(
                             children: [
                               Icon(
                                 Icons.star,
-                                color: AppColor.orange,
-                                size: 18,
+                                color: AppColor.welcomeColor,
+                                size: 20,
                               ),
                               const SizedBox(width: 5,),
                               Text(
                                 '5.0 (8)',
                                 style: TextStyle(
-                                    color: AppColor.secondary,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w300),
+                                    color: Colors.black,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
-                          ),
-                          const SizedBox(height: 8,),
-                          Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.location_on,
-                                color: AppColor.secondary,
-                                size: 20,
-                              ),
-                              const SizedBox(width: 10,),
-                              Text('90 Parker St.Moxico',
-                                  style: TextStyle(
-                                      color: AppColor.secondary,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w300)),
-                            ],
-                          ),
+                          ),),
+                          //const SizedBox(height: 8,),
+                          // Row(
+                          //   mainAxisAlignment:
+                          //   MainAxisAlignment.start,
+                          //   children: [
+                          //     Icon(
+                          //       Icons.location_on,
+                          //       color: AppColor.secondary,
+                          //       size: 20,
+                          //     ),
+                          //     const SizedBox(width: 10,),
+                          //     Text('90 Parker St.Moxico',
+                          //         style: TextStyle(
+                          //             color: Colors.black,
+                          //             fontSize: 12.sp,
+                          //             fontWeight: FontWeight.w500)),
+                          //   ],
+                          // ),
+                          Text('90 Parker St.Moxico',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w500)),
                         ],
                       ),
                     ),
@@ -104,7 +110,17 @@ class _HotelsOnGoogleMapCardWidgetState
                 ],
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                  color: Color(0xffFFFFFF),
+
+                  borderRadius: BorderRadius.circular(12),
+               // border: Border.all()
+                  boxShadow: [
+              BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, 0.25),
+              offset: Offset(2, 2),
+              blurRadius: 4.0,
+              spreadRadius: 2, // Shadow position
+            ),],
               ),
             );
           },

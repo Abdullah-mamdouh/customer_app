@@ -40,25 +40,25 @@ class SearchPage extends StatelessWidget {
               contentPadding:  EdgeInsets.symmetric(vertical:1.h, ),
               fillColor: Color(0xFFeeeeee),
               filled: true,
-              prefixIcon: Icon(Icons.search, color: Colors.black, size: 20),
-              suffixIcon: Icon(Icons.clear, color: Colors.black, size: 20),
+              prefixIcon: const Icon(Icons.search, color: Colors.black, size: 20),
+              suffixIcon: const Icon(Icons.clear, color: Colors.black, size: 20),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: Colors.white,
                     style: BorderStyle.solid,
                     width: 2),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: Colors.white,
                     style: BorderStyle.solid,
                     width: 2),
               ),
              // labelText:
               hintText:'Search',
-              hintStyle: TextStyle(color: Color(0xFF555354))),
+              hintStyle: const TextStyle(color: Color(0xFF555354))),
         ),
         actions: [
           IconButton(

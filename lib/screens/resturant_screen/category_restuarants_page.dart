@@ -14,9 +14,9 @@ class CategoryRestaurantsPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text('Potes de Sorvetes',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color: Colors.black),),
-        iconTheme: IconThemeData(color: AppColor.welcomeColor),
+        iconTheme: const IconThemeData(color: AppColor.welcomeColor),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_rounded,),
+          icon: const Icon(Icons.arrow_back_ios_rounded,),
           onPressed: () => Navigator.of(context).pop(),
         ),
 
@@ -40,11 +40,11 @@ class CategoryRestaurantsPage extends StatelessWidget {
                           width: double.infinity,
                           height: 155.h,
                           decoration: BoxDecoration(
-                            color: Color(0xffFFFFFF),
+                            color: const Color(0xffFFFFFF),
                             borderRadius: BorderRadius.circular(
                               25,
                             ),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
                                 offset: Offset(0, 2),
@@ -66,7 +66,7 @@ class CategoryRestaurantsPage extends StatelessWidget {
                                   ),
                                   color: Color(0xffFFFFFF),
                                   borderRadius: BorderRadius.circular(25),
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       color: Color.fromRGBO(0, 0, 0, 0.25),
                                       offset: Offset(0, 0),

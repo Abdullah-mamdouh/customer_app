@@ -9,6 +9,7 @@ class DividerWidget extends StatelessWidget {
       color: AppColor.placeholder,
       height: 0,
       thickness: 0.2,
+      //
     );
   }
 }

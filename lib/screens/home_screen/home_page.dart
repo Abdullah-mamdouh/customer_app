@@ -1,17 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodio/const/styles.dart';
+import 'package:foodio/screens/card_screen/card_page.dart';
 import 'package:foodio/screens/home_screen/widgets/popular_food.dart';
+import 'package:foodio/screens/orders_screen/orders_page.dart';
+import 'package:foodio/screens/resturant_screen/category_restuarants_page.dart';
 import 'package:foodio/screens/resturant_screen/resturant_page.dart';
+import 'package:foodio/screens/wallet_screen/wallet_page.dart';
+import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
 
 import '../../const/colors.dart';
 import '../../utils/helper.dart';
+import '../../utils/routes/routes.dart';
 import '../../widgets/customNavBar.dart';
 import '../../widgets/searchBar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../hotels_on_google_map/hotels_on_google_map_page.dart';
 class HomePage extends StatefulWidget {
-  static const routeName = "/homeScreen";
+  static const routeName = "/home";
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -31,39 +40,68 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(EvaIcons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
         title: Text(
           "Restuarants",
           style: TextStyle(
             color: Colors.black,
-            fontWeight: FontWeight.w600,
-            fontSize: 19.sp
+              fontWeight: FontWeight.w500,
+              fontSize: 16.sp
           ),
         ),
         elevation: 0,
         backgroundColor: Colors.white,
+        //actionsIconTheme: IconThemeData(),
+
+
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.search);
+              },
+              alignment: Alignment(8, 0.0),
               icon: Icon(
-                Icons.search_rounded,
+                Icons.search,
                 color: Colors.black,
                 size: 25,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HotelsOnMapPage()),
+                );
+
+              },
+              alignment: Alignment(4, 0.0),
               icon: Icon(
-                Icons.location_city_rounded,
+                Icons.map_outlined,
                 color: Colors.black,
                 size: 25,
               )),
-          IconButton(
-              onPressed: () {},
+          Padding(padding: EdgeInsets.only(right: 5.w), child: IconButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.card);
+              },
               icon: Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.black,
                 size: 25,
-              )),
+              )),),
         ],
       ),
       body: Stack(
@@ -165,10 +203,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text("Find your food",
                             style: TextStyle(
-                                color: AppColor.heederColor,
+                                color: Colors.black,
                                 fontSize: 22.sp,
                                 fontWeight: FontWeight.w700)),
-                        Image.asset(Helper.getAssetName("cart.png", "virtual"))
+                        //Image.asset(Helper.getAssetName("cart.png", "virtual"))
                       ],
                     ),
                   ),
@@ -192,7 +230,40 @@ class _HomePageState extends State<HomePage> {
                   /*SizedBox(
                     height: 20,
                   ),*/
-                  _buildSlider(context),
+                  //_buildSlider(context),
+                  Container(
+                    height: 170.h,
+                    width: double.infinity,
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),                        scrollDirection: Axis.horizontal,
+                      // padding: const EdgeInsets.symmetric(
+                      //   vertical: 5,
+                      // ),
+                      //
+                      itemCount: 4,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding:  EdgeInsets.symmetric(horizontal:10.w),
+                          child: Container(
+                            height: 170.h,
+                            width: 280.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage('assets/images/real/hamburger.jpg'),                          )
+                            ),
+                          ),
+                        );
+                      },
+                      // separatorBuilder: (context, index) =>  SizedBox(
+                      //   width: 15.w,
+                      // ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -204,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Categories",
                           style: Helper.getTheme(context).headline5!.copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black,
                                 //fontFamily: 'Metropolis',
@@ -216,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                               "View all",
                               style: TextStyle(
                                   color: AppColor.welcomeColor,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500),
                             ))
                       ],
@@ -240,6 +311,12 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                             name: "Offers",
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  CategoryRestaurantsPage()),
+                              );
+                            },
                           ),
                           SizedBox(
                             width: 17.w,
@@ -279,17 +356,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 10.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Popular Food Nearby",
                           style: Helper.getTheme(context).headline5!.copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black,
                                 //fontFamily: 'Metropolis',
@@ -301,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                               "View all",
                               style: TextStyle(
                                   color: AppColor.welcomeColor,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500),
                             ))
                       ],
@@ -310,13 +387,10 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 5.h,
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: SizedBox(
-                      height: 105.h,
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: PopularFood(),
-                    ),
+                  SizedBox(
+                    height: 95.h,
+                    width: double.infinity,
+                    child: PopularFood(),
                   ),
 
 /*
@@ -344,17 +418,17 @@ class _HomePageState extends State<HomePage> {
                   ),
 */
                   SizedBox(
-                    height: 20.h,
+                    height:5.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "New Arrivals",
                           style: Helper.getTheme(context).headline5!.copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black,
                                 //fontFamily: 'Metropolis',
@@ -366,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                               "View all",
                               style: TextStyle(
                                   color: AppColor.welcomeColor,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500),
                             ))
                       ],
@@ -430,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 18.sp,
+                            fontSize: 15.sp,
                             color: Colors.black,
                           ),
                           widget: Row(
@@ -440,17 +514,17 @@ class _HomePageState extends State<HomePage> {
                               Icon(
                                 Icons.star,
                                 color: AppColor.welcomeColor,
-                                size: 22,
+                                size: 20,
                               ),
-                              const SizedBox(
-                                width: 3,
+                               SizedBox(
+                                width: 3.w,
                               ),
                               Text(
                                 "0 (0)",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               )
                             ],
@@ -460,17 +534,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 5.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Offers For You",
                           style: Helper.getTheme(context).headline5!.copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black,
                                 //fontFamily: 'Metropolis',
@@ -482,7 +556,7 @@ class _HomePageState extends State<HomePage> {
                               "View all",
                               style: TextStyle(
                                   color: AppColor.welcomeColor,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500),
                             ))
                       ],
@@ -505,10 +579,15 @@ class _HomePageState extends State<HomePage> {
                                 "${Helper.getAssetName("pizza4.png", "real")}",
                             location: 'Nasr Sp Bus Stand, Chatberii Pronce',
                             rate: "0 (0)",
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  ResturantPage()),
+                              );
+                            },
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: 16.sp,
+                              fontSize: 15.sp,
                               color: Colors.black,
                             ),
                             widget: Padding(
@@ -522,7 +601,7 @@ class _HomePageState extends State<HomePage> {
                                     "10off",
                                     style: TextStyle(
                                       color: AppColor.welcomeColor,
-                                      fontSize: 17.sp,
+                                      fontSize: 15.sp,
                                       fontWeight: FontWeight.w900,
                                     ),
                                   ),
@@ -531,17 +610,17 @@ class _HomePageState extends State<HomePage> {
                                       Icon(
                                         Icons.star,
                                         color: AppColor.welcomeColor,
-                                        size: 22,
+                                        size: 20,
                                       ),
-                                      const SizedBox(
-                                        width: 3,
+                                       SizedBox(
+                                        width: 3.w,
                                       ),
                                       Text(
                                         "0 (0.0)",
                                         style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ],
@@ -553,17 +632,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Popular Restaurant",
                           style: Helper.getTheme(context).headline5!.copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black,
                                 //fontFamily: 'Metropolis',
@@ -575,7 +654,7 @@ class _HomePageState extends State<HomePage> {
                               "View all",
                               style: TextStyle(
                                   color: AppColor.welcomeColor,
-                                  fontSize: 16.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w500),
                             ))
                       ],
@@ -598,10 +677,15 @@ class _HomePageState extends State<HomePage> {
                           location:
                               '6129 Prince Muhammet ebn saad Chatberii Pronce',
                           //rate: "4 (3.0)",
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>  ResturantPage()),
+                            );
+                          },
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 16.sp,
+                            fontSize: 14.sp,
                             color: Colors.black,
                           ),
                           widget: Row(
@@ -611,17 +695,17 @@ class _HomePageState extends State<HomePage> {
                               Icon(
                                 Icons.star,
                                 color: AppColor.welcomeColor,
-                                size: 22,
+                                size: 20,
                               ),
-                              const SizedBox(
-                                width: 3,
+                               SizedBox(
+                                width: 3.w,
                               ),
                               Text(
                                 "4 (3.0)",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               )
                             ],
@@ -631,14 +715,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 15.h,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "All Restaurant",
                       style: Helper.getTheme(context).headline5!.copyWith(
-                            fontSize: 18.sp,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.black,
                             //fontFamily: 'Metropolis',
@@ -666,6 +750,8 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                             name: "Hashim",
+                            color: AppColor.subTiteColor,
+                            icon: Icons.favorite_border_rounded,
                           ),
                         ),
                         SizedBox(
@@ -676,7 +762,10 @@ class _HomePageState extends State<HomePage> {
                               Helper.getAssetName("coffee.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
-                            name: "Hash1"),
+                            name: "Hash1",
+                          color: AppColor.subTiteColor,
+                          icon: Icons.favorite_border_rounded,
+                        ),
                         SizedBox(
                           height: 15.h,
                         ),
@@ -685,6 +774,8 @@ class _HomePageState extends State<HomePage> {
                               Helper.getAssetName("pizza.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
+                            color: AppColor.subTiteColor,
+                            icon: Icons.favorite_border_rounded,
                             name: "egrftt"),
                         SizedBox(
                           height: 15.h,
@@ -694,7 +785,10 @@ class _HomePageState extends State<HomePage> {
                               Helper.getAssetName("pizza.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
-                            name: "Pizza Rush Hour"),
+                            name: "Pizza Rush Hour",
+                          color: AppColor.subTiteColor,
+                          icon: Icons.favorite_border_rounded,
+                        ),
                       ],
                     ),
                   )
@@ -813,23 +907,30 @@ class RecentItemCard extends StatelessWidget {
     Key? key,
     @required String? name,
     @required Image? image,
+    @required IconData? icon,
+    @required Color? color,
   })  : _name = name,
         _image = image,
+        _icon = icon,
+  _color=color,
         super(key: key);
 
   final String? _name;
   final Image? _image;
+  final IconData? _icon;
+  final Color? _color;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Container(
-            width: 100.w,
-            height: 90.h,
+            width: 90.w,
+            height: 80.h,
             child: _image,
           ),
         ),
@@ -838,34 +939,38 @@ class RecentItemCard extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            height: 90.h,
+            height: 80.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      _name!,
-                      style: TextStyle(
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_border_rounded,
-                          size: 28,
-                          color: AppColor.subTiteColor,
-                        )),
-                  ],
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        _name!,
+                        style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            _icon,
+                            size: 25,
+                            color: _color,
+
+                          )),
+                    ],
+                  ),
                 ),
                 Text(
                  "gugol",
                   style: TextStyle(
                       fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       color: AppColor.subTiteColor),
                 ),
                 Expanded(child: Row(
@@ -873,17 +978,17 @@ class RecentItemCard extends StatelessWidget {
                     Icon(
                       Icons.star,
                       color: AppColor.welcomeColor,
-                      size: 25,
+                      size: 20,
                     ),
-                    const SizedBox(
-                      width: 3,
+                    SizedBox(
+                      width: 3.w,
                     ),
                     Text(
                       "0 (0.0)",
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
@@ -1059,7 +1164,7 @@ class NewArrivalsCard extends StatelessWidget {
                   ),
                   Padding(
                     padding:
-                        EdgeInsets.only(top: 135.h, left: 10.w, bottom: 6.h),
+                        EdgeInsets.only(top: 135.h, left: 15.w, bottom: 10.h),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1074,9 +1179,9 @@ class NewArrivalsCard extends StatelessWidget {
                           child: Row(
                             children: [
                               Icon(
-                                Icons.location_on_rounded,
+                                Icons.location_on,
                                 color: AppColor.subTiteColor,
-                                size: 20,
+                                size: 18,
                               ),
                               const SizedBox(
                                 width: 3,
@@ -1087,9 +1192,10 @@ class NewArrivalsCard extends StatelessWidget {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    color: AppColor.subTiteColor,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF555354),
+                                    //AppColor.subTiteColor,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
@@ -1206,20 +1312,24 @@ class CategoryCard extends StatelessWidget {
     Key? key,
     @required Image? image,
     @required String? name,
+    @required Function()? onTap,
   })  : _image = image,
         _name = name,
+        _onTap = onTap,
         super(key: key);
 
   final String? _name;
   final Image? _image;
-
+  final void Function()? _onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: Container(
+          child: GestureDetector(
+            onTap: _onTap,
+            child:Container(
               width: 100.w,
               height: 90.h,
               decoration: BoxDecoration(
@@ -1233,6 +1343,7 @@ class CategoryCard extends StatelessWidget {
                   child: _image,
                 ),
               )),
+          ),
         ),
         SizedBox(
           height: 5,
@@ -1240,9 +1351,9 @@ class CategoryCard extends StatelessWidget {
         Text(
           _name!,
           style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w700,
-              color: AppColor.primary),
+              fontSize: 13.sp,
+              fontWeight: FontWeight.w400,
+              color: Colors.black),
         ),
       ],
     );

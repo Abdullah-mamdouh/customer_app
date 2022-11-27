@@ -17,4 +17,5 @@ class Routes {
   static const String profile = ProfilePage.routeName;
   static const String favorite = FavoritePage.routeName;
   static const String search = SearchPage.routeName;
+  ///
 }

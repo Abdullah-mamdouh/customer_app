@@ -32,13 +32,11 @@ class ProfilePage extends StatelessWidget {
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w500,
-              fontSize: 16.sp
-          ),
+              fontSize: 16.sp),
         ),
         elevation: 0,
         backgroundColor: Colors.white,
         //actionsIconTheme: IconThemeData(),
-
 
         actions: [
           IconButton(
@@ -48,7 +46,6 @@ class ProfilePage extends StatelessWidget {
                 Icons.search,
                 color: Colors.black,
                 size: 25,
-
               )),
           IconButton(
               onPressed: () {},
@@ -58,13 +55,16 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.black,
                 size: 25,
               )),
-          Padding(padding: EdgeInsets.only(right: 5.w), child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.black,
-                size: 25,
-              )),),
+          Padding(
+            padding: EdgeInsets.only(right: 5.w),
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Colors.black,
+                  size: 25,
+                )),
+          ),
         ],
       ),
       //backgroundColor: const Color(0xFF1a1a1a),
@@ -113,28 +113,33 @@ class ProfilePage extends StatelessWidget {
                   height: 5.h,
                 ),
                 Center(
-                  child: Text('Ibrahim Hassan',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400,
-                      )),
+                  child: Text(
+                    'Ibrahim Hassan',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
                 ListTile(
-                  leading: Icon(Icons.person,color: Color(0xff2196f3)),
-                  title: Text('Account Details',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                      )),
+                  leading: const Icon(Icons.person, color: Color(0xff2196f3)),
+                  title: Text(
+                    'Account Details',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.settings_input_svideo_rounded, color: Color(0xff9e9e9e)),
+                  leading: Icon(Icons.settings_input_svideo_rounded,
+                      color: Color(0xff9e9e9e)),
                   title: Text(
                     'Settings',
                     style: TextStyle(
@@ -146,7 +151,10 @@ class ProfilePage extends StatelessWidget {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.call,color: Color(0xff4caf51),),
+                  leading: Icon(
+                    Icons.call,
+                    color: Color(0xff4caf51),
+                  ),
                   title: Text('Contact Us',
                       style: TextStyle(
                         color: Colors.black,
@@ -156,7 +164,10 @@ class ProfilePage extends StatelessWidget {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.delete_outline_outlined,color: Color(0xffe5473d),),
+                  leading: Icon(
+                    Icons.delete_outline_outlined,
+                    color: Color(0xffe5473d),
+                  ),
                   title: Text('Delete Account',
                       style: TextStyle(
                         color: Colors.black,
@@ -173,17 +184,23 @@ class ProfilePage extends StatelessWidget {
                     //color: Colors.white,
                     child: ElevatedButton(
                       style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        side: BorderSide(width: .05, color: AppColor.subTiteColor,),
-                        backgroundColor: Colors.white
-                        // padding: EdgeInsets.symmetric(
-                        //   vertical: 5,
-                        //   horizontal: 15,
-                        // ),
-                      ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          side: BorderSide(
+                            width: .05,
+                            color: AppColor.subTiteColor,
+                          ),
+                          backgroundColor: Colors.white
+                          // padding: EdgeInsets.symmetric(
+                          //   vertical: 5,
+                          //   horizontal: 15,
+                          // ),
+                          ),
                       onPressed: () {},
-                      child: Text("Log Out", style: TextStyle(color: Colors.black,fontSize: 13.sp),),
+                      child: Text(
+                        "Log Out",
+                        style: TextStyle(color: Colors.black, fontSize: 13.sp),
+                      ),
                     ),
                   ),
                 ),

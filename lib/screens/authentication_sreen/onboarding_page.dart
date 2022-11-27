@@ -74,6 +74,7 @@ class OnBoarding extends StatelessWidget {
                           //   ),
                           //   color: Colors.white,
                           // ),
+                          ///
                         )),
                   ],
                 ),

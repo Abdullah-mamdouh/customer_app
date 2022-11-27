@@ -1,11 +1,15 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodio/const/colors.dart';
+import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
 import 'package:foodio/screens/wallet_screen/widget/card_widget.dart';
 import 'package:foodio/screens/wallet_screen/widget/wallet_list_widget.dart';
 import 'package:foodio/utils/helper.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({Key? key}) : super(key: key);
+  static const routeName = "/wallet";
 
   @override
   State<WalletPage> createState() => _WalletPageState();
@@ -20,35 +24,42 @@ class _WalletPageState extends State<WalletPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundWhite,
+      drawer: AppDrawer(),
       appBar: AppBar(
         backgroundColor: AppColor.orange,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.menu,
-            size: 15,
-          ),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(EvaIcons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
         ),
         title: Text(
           'Wallet',
           style: TextStyle(
-            fontSize: 18,
+            color: Colors.white,
+              fontWeight: FontWeight.w500,
+              fontSize: 16.sp
           ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(100),
+          preferredSize: Size.fromHeight(120),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'TOTAL BALANCE',
+                  'Total Balance',
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       color: Colors.white,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w600),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,9 +67,9 @@ class _WalletPageState extends State<WalletPage> {
                     Text(
                       '\$200',
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 22.sp,
                           color: Colors.white,
-                          fontWeight: FontWeight.w700),
+                          fontWeight: FontWeight.w500),
                     ),
                     MaterialButton(
                       onPressed: () {
@@ -66,12 +77,12 @@ class _WalletPageState extends State<WalletPage> {
                       },
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(25)),
                       child: Text(
-                        'POPUP WALLET',
+                        'TOPUP WALLET',
                         style: TextStyle(
-                            fontSize: 14,
-                            color: AppColor.orange,
+                            fontSize: 13.sp,
+                            color: AppColor.welcomeColor,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
@@ -82,8 +93,8 @@ class _WalletPageState extends State<WalletPage> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: WalletListWidget(),
       ),
     );
@@ -113,7 +124,7 @@ class _WalletPageState extends State<WalletPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Topup Wallet',
                           style: TextStyle(
                               fontSize: 14,
@@ -123,7 +134,7 @@ class _WalletPageState extends State<WalletPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text(
+                        const Text(
                           'Add Topup Amount',
                           style: TextStyle(
                               fontSize: 14,
@@ -138,10 +149,10 @@ class _WalletPageState extends State<WalletPage> {
                               borderRadius: BorderRadius.circular(15)),
                           elevation: 1,
                           child: Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
                             width: double.infinity,
-                            child: Text.rich(
+                            child: const Text.rich(
                               TextSpan(
                                 children: [
                                   TextSpan(

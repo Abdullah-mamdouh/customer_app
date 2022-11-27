@@ -1,4 +1,3 @@
-
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:foodio/const/colors.dart';
 import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
 import 'package:foodio/screens/resturant_screen/category_restuarants_page.dart';
 import 'package:foodio/utils/helper.dart';
+
 class CuisinesPage extends StatelessWidget {
   const CuisinesPage({Key? key}) : super(key: key);
   static const routeName = "/cuisines";
@@ -36,38 +36,41 @@ class CuisinesPage extends StatelessWidget {
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w500,
-              fontSize: 16.sp
-          ),
+              fontSize: 16.sp),
         ),
         actions: [
           IconButton(
-              onPressed: () {},
-              alignment: Alignment(8, 0.0),
-              icon: Icon(
-                Icons.search,
-                color: Colors.black,
-                size: 25,
-
-              )),
+            onPressed: () {},
+            alignment: Alignment(8, 0.0),
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 25,
+            ),
+          ),
           IconButton(
               onPressed: () {},
               alignment: Alignment(4, 0.0),
-              icon: Icon(
+              icon: const Icon(
                 Icons.map_outlined,
                 color: Colors.black,
                 size: 25,
-              )),
-          Padding(padding: EdgeInsets.only(right: 5.w), child: IconButton(
+              ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 5.w),
+            child: IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.black,
                 size: 25,
-              )),),
+              ),
+            ),
+          ),
         ],
       ),
-      body:
-      ListView.separated(
+      body: ListView.separated(
         shrinkWrap: true,
         physics: AlwaysScrollableScrollPhysics(),
         //scrollDirection: Axis.horizontal,
@@ -76,17 +79,17 @@ class CuisinesPage extends StatelessWidget {
         // ),
         itemCount: 15,
         itemBuilder: (BuildContext context, int index) {
-          return
-            GestureDetector(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  CategoryRestaurantsPage()),
-                );
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
-                child: Container(
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => CategoryRestaurantsPage()),
+              );
+            },
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+              child: Container(
                   width: double.infinity,
                   height: 110.h,
                   decoration: BoxDecoration(
@@ -103,22 +106,28 @@ class CuisinesPage extends StatelessWidget {
                       ),
                     ],
                     image: DecorationImage(
-                      image: AssetImage(Helper.getAssetName("bakery.png", "real"),),
+                      image: AssetImage(
+                        Helper.getAssetName("bakery.png", "real"),
+                      ),
                       fit: BoxFit.fill,
                     ),
                   ),
                   child: Center(
                     child: Container(
                       color: Colors.transparent,
-                      child: Text("Potes de Sorvetes",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25.sp,color: Colors.white),),
-
+                      child: Text(
+                        "Potes de Sorvetes",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25.sp,
+                            color: Colors.white),
+                      ),
                     ),
-                  )
-                ),
-              ),
-            );
+                  )),
+            ),
+          );
         },
-        separatorBuilder: (context, index) =>  SizedBox(
+        separatorBuilder: (context, index) => SizedBox(
           height: 2.h,
         ),
       ),

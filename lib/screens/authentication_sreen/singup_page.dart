@@ -56,6 +56,7 @@ class SignupPage extends StatelessWidget {
                             //"http://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg",
                           ),
                         ),
+                        ///
                         Positioned(
                             bottom: 0,
                             right: -25,

@@ -98,6 +98,7 @@ class FavoritePage extends StatelessWidget {
                   name: "Hash1",
                 icon: Icons.favorite,
                 color: AppColor.welcomeColor,
+                ///
               ),
             );
         },

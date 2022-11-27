@@ -189,6 +189,7 @@ class LoginView extends StatelessWidget {
                           // SizedBox(
                           //   width: 30.w,
                           // ),
+                          ///
                           Center(
                               child: Text(
                                 'Login with phone number',

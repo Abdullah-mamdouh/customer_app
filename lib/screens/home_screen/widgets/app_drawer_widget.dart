@@ -63,6 +63,7 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
           ),
+          ///
           _createDrawerItem(icon: FontAwesomeIcons.houseChimney, text: 'Restaurants', onTap: () =>
               Navigator.pushReplacementNamed(context, Routes.home),),
           _createDrawerItem(icon: Icons.event, text: 'Cuisines', onTap: () =>

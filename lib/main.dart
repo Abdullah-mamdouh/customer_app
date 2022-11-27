@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:foodio/screens/authentication_sreen/login_page.dart';
+import 'package:foodio/screens/authentication_sreen/onboarding_page.dart';
+import 'package:foodio/screens/authentication_sreen/singup_page.dart';
 import 'package:foodio/screens/card_screen/card_page.dart';
+import 'package:foodio/screens/favoirite_screen/favorite_page.dart';
 import 'package:foodio/screens/home_screen/home_page.dart';
+import 'package:foodio/screens/orders_screen/orders_page.dart';
+import 'package:foodio/screens/profile_screen/profile_page.dart';
+import 'package:foodio/screens/resturant_screen/Cuisines_page.dart';
 import 'package:foodio/screens/resturant_screen/resturant_page.dart';
+import 'package:foodio/screens/search_screen/search_page.dart';
 import 'package:foodio/screens/wallet_screen/wallet_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodio/utils/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +41,16 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
+          routes:  {
+            Routes.home: (context) => HomePage(),
+            Routes.order: (context) => OrdersPage(),
+            Routes.card: (context) => CardPage(),
+            Routes.cuisines: (context) => CuisinesPage(),
+            Routes.wallet: (context) => WalletPage(),
+            Routes.profile: (context) => ProfilePage(),
+            Routes.favorite: (context) => FavoritePage(),
+            Routes.search: (context) => SearchPage(),
+          },
           // You can use the library anywhere in the app even in theme
           theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -40,7 +59,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child:  HomePage(),
+      child:  OnBoarding(),
     );
   }
 }
@@ -129,3 +148,45 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+//
+// class MainPage extends StatefulWidget {
+//   @override
+//   _MainPageState createState() => _MainPageState();
+// }
+//
+// class _MainPageState extends State<MainPage> {
+//
+//   @override
+//   void initState() {
+//     // TODO: implement initState
+//     NavigationItem _navigationItem = NavigationItem.home;
+//
+//     NavigationItem get navigationItem => _navigationItem;
+//
+//     void setNavigationItem(NavigationItem navigationItem) {
+//       _navigationItem = navigationItem;
+//     }
+//     super.initState();
+//   }
+//   @override
+//   Widget build(BuildContext context) => buildPages();
+//
+//   Widget buildPages() {
+//
+//     switch (NavigationItem navigationItem) {
+//       case NavigationItem.home:
+//         return HomePage();
+//       case NavigationItem.order:
+//         return OrdersPage();
+//       case NavigationItem.card:
+//         return CardPage();
+//     }
+//   }
+// }
+//
+//
+// enum NavigationItem {
+//   home,
+//   order,
+//   card
+// }

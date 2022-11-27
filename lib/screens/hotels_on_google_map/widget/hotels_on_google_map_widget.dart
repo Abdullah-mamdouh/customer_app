@@ -56,6 +56,7 @@ class _HotelsOnGoogleMapWidgetState extends State<HotelsOnGoogleMapWidget> {
             mapController = controller;
           });
         },
+
       ),
     );
   }

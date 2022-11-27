@@ -14,6 +14,7 @@ class AppColor {
  // static const welcomeColor = Color(0xFFce1442);
   static const welcomeColor2 = Color(0xFFe9073f);
   static const heederColor = Color(0xFF333333);
+  ////color
   static const subTiteColor = Color(0xFF9091a4);
 
 

@@ -1,17 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodio/const/colors.dart';
 import 'package:foodio/const/styles.dart';
-import 'package:foodio/screens/home_screen/widgets/popular_food.dart';
 import 'package:foodio/screens/resturant_screen/widgets/pizza_types_widget.dart';
 import 'package:foodio/screens/resturant_screen/widgets/switch_button_widget.dart';
 import 'package:foodio/utils/helper.dart';
 import 'package:foodio/utils/widgets/divider_widget.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-
 
 class ResturantPage extends StatefulWidget {
   const ResturantPage({Key? key}) : super(key: key);
@@ -35,7 +29,7 @@ class _ResturantPageState extends State<ResturantPage>
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(300),
         child: Container(
-          height: 200.h,
+          height: 200,
           child: Align(
             alignment: AlignmentDirectional.topStart,
             child: Padding(
@@ -47,35 +41,34 @@ class _ResturantPageState extends State<ResturantPage>
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child:  Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 5.h),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: CircleAvatar(
-                        radius: 25,
+                        radius: 20,
                         backgroundColor: AppColor.primary,
                         child: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
-                          size: 25,
                         ),
                       ),
                     ),
                   ),
-                  // InkWell(
-                  //   onTap: () {
-                  //     Navigator.pop(context);
-                  //   },
-                  //   child: const Padding(
-                  //     padding: EdgeInsets.symmetric(horizontal: 10),
-                  //     child: CircleAvatar(
-                  //       radius: 20,
-                  //       backgroundColor: AppColor.primary,
-                  //       child: Icon(
-                  //         Icons.favorite,
-                  //         color: Colors.white,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: AppColor.primary,
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -83,15 +76,13 @@ class _ResturantPageState extends State<ResturantPage>
           decoration: BoxDecoration(
               image: DecorationImage(
             image: AssetImage(
-              'assets/images/real/bakery.png',
+              'assets/images/real/pizza.jpg',
             ),
             fit: BoxFit.fill,
           )),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
+      body: Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Column(
             children: [
@@ -106,17 +97,15 @@ class _ResturantPageState extends State<ResturantPage>
                         fontWeight: FontWeight.w700),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-                    width: 80.w,
+                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CircleAvatar(
                           radius: 5,
                           backgroundColor: AppColor.green,
                         ),
-                        SizedBox(
-                          width: 3.w,
+                        const SizedBox(
+                          width: 3,
                         ),
                         Text(
                           'Open',
@@ -128,14 +117,14 @@ class _ResturantPageState extends State<ResturantPage>
                       ],
                     ),
                     decoration: BoxDecoration(
-                      color: Color(0xFFf0f4f7),
+                      color: AppColor.placeholder,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 4.h,
+              const SizedBox(
+                height: 5,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,15 +133,14 @@ class _ResturantPageState extends State<ResturantPage>
                     children: [
                       Icon(
                         Icons.location_on,
-                        color: AppColor.subTiteColor,
-
+                        color: AppColor.secondary,
                       ),
-                      SizedBox(
-                        width: 5.w,
+                      const SizedBox(
+                        width: 5,
                       ),
                       Text(
                         '91 Parker St, Maxico',
-                        style: AppStyle.normalStyle!.copyWith(color: AppColor.subTiteColor, ),
+                        style: AppStyle.normalStyle,
                       ),
                     ],
                   ),
@@ -160,34 +148,34 @@ class _ResturantPageState extends State<ResturantPage>
                     child: Text(
                       'View Timing',
                       style: TextStyle(
-                          color: AppColor.welcomeColor,
-                          fontSize: 12.sp,
+                          color: AppColor.orange,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height:20.h,
+              const SizedBox(
+                height: 10,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       child: Column(
                         children: [
-                          Icon(Icons.location_on_outlined, size: 30,color: Color(0xFFff9b7b)),
-                          SizedBox(
-                            height: 8.h,
+                          Icon(Icons.location_on),
+                          const SizedBox(
+                            height: 2,
                           ),
                           Text(
                             '22 km',
                             style: TextStyle(
                               color: AppColor.primary,
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -196,16 +184,16 @@ class _ResturantPageState extends State<ResturantPage>
                     Container(
                       child: Column(
                         children: [
-                          Icon(Icons.access_time, size: 30,color: Color(0xFFff9b7b)),
-                          SizedBox(
-                            height: 8.h,
+                          Icon(Icons.access_time),
+                          const SizedBox(
+                            height: 2,
                           ),
                           Text(
                             '25 min',
                             style: TextStyle(
                               color: AppColor.primary,
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -214,16 +202,16 @@ class _ResturantPageState extends State<ResturantPage>
                     Container(
                       child: Column(
                         children: [
-                          Icon(Icons.star_border,size: 30,color: Color(0xFFff9b7b)),
-                          SizedBox(
-                            height: 8.h,
+                          Icon(Icons.star),
+                          const SizedBox(
+                            height: 2,
                           ),
                           Text(
                             '5.0 Rate',
                             style: TextStyle(
                               color: AppColor.primary,
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -232,16 +220,16 @@ class _ResturantPageState extends State<ResturantPage>
                     Container(
                       child: Column(
                         children: [
-                          Icon(Icons.share_rounded,color: Color(0xFFff9b7b),size: 30),
-                          SizedBox(
-                            height: 8.h,
+                          Icon(Icons.share),
+                          const SizedBox(
+                            height: 2,
                           ),
                           Text(
                             'Share',
                             style: TextStyle(
                               color: AppColor.primary,
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -250,41 +238,18 @@ class _ResturantPageState extends State<ResturantPage>
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.circular(
-                    8,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: AppColor.secondary,
+                    width: 0.5,
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      offset: Offset(2, 2),
-                      blurRadius: 4.0,
-                      spreadRadius: 2, // Shadow position
-                    ),
-                  ],
                 ),
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(8),
-                //   border: Border.all(
-                //     color: AppColor.secondary,
-                //     width: 0.5,
-                //   ),
-                //   boxShadow: [
-                //     BoxShadow(
-                //       color: Color.fromRGBO(0, 0, 0, 0.25),
-                //       offset: Offset(2, 2),
-                //       blurRadius: 2.0,
-                //       spreadRadius: 4, // Shadow position
-                //     ),
-                //   ],
-                // ),
               ),
-              SizedBox(
-                height: 20.h,
+              const SizedBox(
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
                     child: Card(
@@ -292,7 +257,6 @@ class _ResturantPageState extends State<ResturantPage>
                       child: Container(
                         padding: EdgeInsets.all(10),
                         width: Helper.getScreenWidth(context)*0.4,
-                        height: 35.0.h,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -300,11 +264,11 @@ class _ResturantPageState extends State<ResturantPage>
                               '5 Reviews',
                               style: TextStyle(
                                 color: AppColor.primary,
-                                fontSize: 13.sp,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-                            FaIcon(FontAwesomeIcons.commentDots,size: 22,color: Color(0xFFff9b7b))
+                            Icon(Icons.message),
                           ],
                         ),
                       ),
@@ -316,8 +280,6 @@ class _ResturantPageState extends State<ResturantPage>
                       child: Container(
                         padding: EdgeInsets.all(10),
                         width: Helper.getScreenWidth(context)*0.4,
-                        height: 35.h,
-
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -325,11 +287,11 @@ class _ResturantPageState extends State<ResturantPage>
                               'Services',
                               style: TextStyle(
                                 color: AppColor.primary,
-                                fontSize: 13.sp,
-                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Icon(Icons.room_service_outlined,color: Color(0xFFff9b7b),),
+                            Icon(Icons.room_service),
                           ],
                         ),
                       ),
@@ -337,96 +299,71 @@ class _ResturantPageState extends State<ResturantPage>
                   ),
                 ],
               ),
-              SizedBox(
-                height: 20.h,
+              const SizedBox(
+                height: 5,
               ),
-
               Container(
-                height: 60.h,
+                height: 70,
                 child: ListView.separated(
                   physics: AlwaysScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  padding:  EdgeInsets.symmetric(vertical: 5.h,),
-                  itemCount: 3,
-                  itemBuilder: (BuildContext context, int index) {
-                    return        DottedBorder(
-                      borderType: BorderType.RRect,
-                      dashPattern: [8, 4],
-                      strokeWidth: 2,
-                      color: AppColor.subTiteColor,
-                      radius: Radius.circular(6),
-                      padding: EdgeInsets.all(6),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(6)),
-                        child: OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 5,),
+                    itemCount: 3,
+                    itemBuilder: (BuildContext context, int index) {
+                      return OutlinedButton(
+                        onPressed: () {},
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset('assets/images/virtual/offer_icon_filled.png',width: 20,height: 20,),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  '50 % OFF',
+                                  style: TextStyle(color: AppColor.primary, fontSize: 16,fontWeight: FontWeight.w500),
+                                ),
+
+                              ],
                             ),
-                          ),
-                          onPressed: () {},
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset('assets/images/virtual/offer_icon_filled.png',width: 25.w,height: 25.h,),
-                                  SizedBox(
-                                    width: 5.w,
-                                  ),
-                                  Text(
-                                    '50% OFF',
-                                    style: TextStyle(color: AppColor.primary, fontSize: 14.sp,fontWeight: FontWeight.w500),
-                                  ),
 
-                                ],
-                              ),
-                              SizedBox(height: 2.h,),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('TRYNEW',
-                                      style: TextStyle(
-                                          color: AppColor.primary,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400
-                                      )),
-                                  SizedBox(width: 3.w,),
-
-                                  Text('|',
-                                      style: TextStyle(
-                                          color: AppColor.primary,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400
-                                      )),
-                                  SizedBox(width: 3.w,),
-                                  Text('Valid till Jan 31,2022',
-                                      style: TextStyle(
-                                          color: AppColor.primary,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w400                                        )),
-                                ],
-                              ),
-                            ],
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('TRYNEW',
+                                    style: TextStyle(
+                                      color: AppColor.placeholder,
+                                      fontSize: 10,
+                                    )),
+                                Text('|',
+                                    style: TextStyle(
+                                      color: AppColor.placeholder,
+                                      fontSize: 10,
+                                    )),
+                                Text('Valid till Jan 31,2022',
+                                    style: TextStyle(
+                                      color: AppColor.placeholder,
+                                      fontSize: 10,
+                                    )),
+                              ],
+                            ),
+                          ],
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
                   separatorBuilder: (context, index) => const SizedBox(
                     width: 10,
                   ),
-                ),
+                    ),
               ),
               const SizedBox(
                 height: 5,
               ),
               TabBar(
-                unselectedLabelColor: Color(0xFF9091a4),
-                labelColor: AppColor.welcomeColor,
-                indicatorColor: AppColor.welcomeColor,
+                unselectedLabelColor: AppColor.secondary,
+                labelColor: AppColor.orange,indicatorColor: AppColor.orange,
                 isScrollable: true,
                 tabs: [
                   Tab(
@@ -448,117 +385,54 @@ class _ResturantPageState extends State<ResturantPage>
               Expanded(
                 child: TabBarView(
                   children: [
-                    Column(
-                      children: [
-                        Container(
-                          height: 50.h,
-                          padding: EdgeInsets.symmetric(horizontal: 30.w,vertical: 10.h),
-                          child: Column(
+                    Container(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        height: 25.h,
-                                        width: 50,
-                                        child: SwitchButtonWidget(),
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text('Veg', style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w400,color: Color(0xFF9091a4)),),
-                                    ],
+                                  SizedBox(
+                                    height: 50,
+                                    child: SwitchButtonWidget(),
                                   ),
-                                  Text(
-                                    "|",
-                                    style: AppStyle.normalStyle,
+                                  const SizedBox(
+                                    width: 5,
                                   ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        height: 25.h,
-                                        child: SwitchButtonWidget(),
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text('Non-Veg',style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w400,color: Color(0xFF9091a4))),
-                                    ],
-                                  ),
+                                  Text('Veg'),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 5,
+                              Text(
+                                "|",
+                                style: AppStyle.normalStyle,
+                              ),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: 50,
+                                    child: SwitchButtonWidget(),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text('Non-Veg'),
+                                ],
                               ),
                             ],
                           ),
-                        ),
-                        DividerWidget(),
-                         SizedBox(
-                          height: 10.h,
-                        ),
-                        PizzaTypesWidget(),
-
-                      ],
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          DividerWidget(),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          PizzaTypesWidget(),
+                        ],
+                      ),
                     ),
-                    // Container(
-                    //   height: 35.h,
-                    //   padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 15.h),
-                    //   //width: double.infinity,
-                    //   child: Column(
-                    //     children: [
-                    //       Row(
-                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //         children: [
-                    //           Row(
-                    //             children: [
-                    //               SizedBox(
-                    //                 height: 25.h,
-                    //                 child: SwitchButtonWidget(),
-                    //               ),
-                    //               const SizedBox(
-                    //                 width: 5,
-                    //               ),
-                    //               Text('Veg'),
-                    //             ],
-                    //           ),
-                    //           Text(
-                    //             "|",
-                    //             style: AppStyle.normalStyle,
-                    //           ),
-                    //           Row(
-                    //             children: [
-                    //               SizedBox(
-                    //                 height: 15.h,
-                    //                 child: SwitchButtonWidget(),
-                    //               ),
-                    //               const SizedBox(
-                    //                 width: 5,
-                    //               ),
-                    //               Text('Non-Veg'),
-                    //             ],
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       const SizedBox(
-                    //         height: 5,
-                    //       ),
-                    //       DividerWidget(),
-                    //       const SizedBox(
-                    //         height: 8,
-                    //       ),
-                    //       PizzaTypesWidget(),
-                    //     ],
-                    //   ),
-                    // ),
                     Container(),
-                    // PizzaTypesWidget(),
                     Container(),
                     Container(),
                     //Text('Person')
@@ -569,54 +443,6 @@ class _ResturantPageState extends State<ResturantPage>
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: Container(
-      height: 50.h,
-      color: Color(0xFFe8073f),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          //foregroundColor: Colors.white,
-          backgroundColor: AppColor.welcomeColor,
-          //Color(0xFFce1745),
-          elevation: 0,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-              Text(
-                "0 Items",
-                style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w400),
-              ),
-                SizedBox(width: 10.sp,),
-
-                Text(
-                "|",
-                style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w300),
-              ),
-                SizedBox(width: 10.sp,),
-
-              Text(
-                "T0",
-                style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.w500),
-              )
-            ],),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-              Text(
-                "VIEW CART",
-                style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.w500),
-              ),
-              SizedBox(width: 10.sp,),
-              Icon(Icons.shopping_cart_outlined,size: 20,)
-            ],),
-          ],
-        ),
-        onPressed: () {},
-      ),
-    ),
 
     );
   }

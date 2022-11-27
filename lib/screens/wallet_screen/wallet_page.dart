@@ -1,15 +1,11 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodio/const/colors.dart';
-import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
 import 'package:foodio/screens/wallet_screen/widget/card_widget.dart';
 import 'package:foodio/screens/wallet_screen/widget/wallet_list_widget.dart';
 import 'package:foodio/utils/helper.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({Key? key}) : super(key: key);
-  static const routeName = "/wallet";
 
   @override
   State<WalletPage> createState() => _WalletPageState();
@@ -24,42 +20,35 @@ class _WalletPageState extends State<WalletPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundWhite,
-      drawer: AppDrawer(),
       appBar: AppBar(
         backgroundColor: AppColor.orange,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(EvaIcons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.menu,
+            size: 15,
+          ),
         ),
         title: Text(
           'Wallet',
           style: TextStyle(
-            color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: 16.sp
+            fontSize: 18,
           ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(120),
+          preferredSize: Size.fromHeight(100),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Total Balance',
+                  'TOTAL BALANCE',
                   style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 14,
                       color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,9 +56,9 @@ class _WalletPageState extends State<WalletPage> {
                     Text(
                       '\$200',
                       style: TextStyle(
-                          fontSize: 22.sp,
+                          fontSize: 16,
                           color: Colors.white,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w700),
                     ),
                     MaterialButton(
                       onPressed: () {
@@ -77,12 +66,12 @@ class _WalletPageState extends State<WalletPage> {
                       },
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
+                          borderRadius: BorderRadius.circular(15)),
                       child: Text(
-                        'TOPUP WALLET',
+                        'POPUP WALLET',
                         style: TextStyle(
-                            fontSize: 13.sp,
-                            color: AppColor.welcomeColor,
+                            fontSize: 14,
+                            color: AppColor.orange,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

@@ -10,8 +10,7 @@ class AppColor {
   static const x = Color(0xFFF2F4F7);
   static const backgroundWhite = Color(0xFFF4F3F7);
   //////
-  static const welcomeColor = Color(0xFFFC6011);
- // static const welcomeColor = Color(0xFFce1442);
+  static const welcomeColor = Color(0xFFce1442);
   static const welcomeColor2 = Color(0xFFe9073f);
   static const heederColor = Color(0xFF333333);
   static const subTiteColor = Color(0xFF9091a4);

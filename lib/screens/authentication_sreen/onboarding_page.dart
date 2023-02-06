@@ -6,6 +6,7 @@ import 'package:foodio/screens/authentication_sreen/login_page.dart';
 import 'package:foodio/screens/authentication_sreen/singup_page.dart';
 import 'package:foodio/screens/home_screen/home_page.dart';
 
+import '../../utils/routes/routes.dart';
 import '../../utils/widgets/main_button.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -24,8 +25,8 @@ class OnBoarding extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                        width: 60.w,
-                        height: 28.0.h,
+                        width: 65.w,
+                        height: 35.0.h,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35.0),
                             border: Border.all(
@@ -36,18 +37,19 @@ class OnBoarding extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),
                               fixedSize:
-                                  Size(MediaQuery.of(context).size.width, 50),
+                              Size(MediaQuery.of(context).size.width, 50),
                               backgroundColor: Colors.white,
                               shadowColor: Colors.black,
                               elevation: 0,
                               side: BorderSide(
                                   color: AppColor.welcomeColor, width: 0.2)),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()),
-                            );
+                            Navigator.pushNamed(context, AppRoutes.homeScreen);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => HomePage()),
+                            // );
                           },
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 0.0.w),
@@ -132,12 +134,13 @@ class OnBoarding extends StatelessWidget {
                   text: 'Log In',
                   backgroundColor: AppColor.welcomeColor,
                   style:
-                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                  TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginView()),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.loginScreen);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => LoginView()),
+                    // );
                   },
                 ),
               ),
@@ -151,10 +154,11 @@ class OnBoarding extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupPage()),
-                      );
+                      Navigator.pushNamed(context, AppRoutes.registerScreen);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => SignupPage()),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

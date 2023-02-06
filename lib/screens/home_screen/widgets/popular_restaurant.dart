@@ -8,14 +8,14 @@ import '../../resturant_screen/resturant_page.dart';
 import '../home_page.dart';
 import 'new_arrivals_card_widget.dart';
 
-class ArrivalsWidget extends StatefulWidget {
-  const ArrivalsWidget({Key? key}) : super(key: key);
+class PopularRestaurant extends StatefulWidget {
+  const PopularRestaurant({Key? key}) : super(key: key);
 
   @override
-  State<ArrivalsWidget> createState() => _ArrivalsWidgetState();
+  State<PopularRestaurant> createState() => _PopularRestaurantState();
 }
 
-class _ArrivalsWidgetState extends State<ArrivalsWidget> {
+class _PopularRestaurantState extends State<PopularRestaurant> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +24,7 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "New Arrivals",
+              "Popular Restaurant",
               style: Helper.getTheme(context).headline5!.copyWith(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w500,
@@ -43,7 +43,6 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
                 ))
           ],
         ),
-
         Container(
           height: 230.h,
           width: double.infinity,
@@ -56,10 +55,11 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
             itemCount: 5,
             itemBuilder: (context, index) {
               return NewArrivalsCard(
-                name: "Hashim",
-                image: "${Helper.getAssetName("pizza4.png", "real")}",
-                location: '20 Pavelian Park',
-                rate: "0 (0)",
+                name: "Flavours Restaurant",
+                image: "${Helper.getAssetName("bakery.png", "real")}",
+                location:
+                '6129 Prince Muhammet ebn saad Chatberii Pronce',
+                //rate: "4 (3.0)",
                 onTap: () {
                   Navigator.push(
                     context,
@@ -68,7 +68,7 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
                 },
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 15.sp,
+                  fontSize: 14.sp,
                   color: Colors.black,
                 ),
                 widget: Row(
@@ -84,7 +84,7 @@ class _ArrivalsWidgetState extends State<ArrivalsWidget> {
                       width: 3.w,
                     ),
                     Text(
-                      "0 (0)",
+                      "4 (3.0)",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 13.sp,

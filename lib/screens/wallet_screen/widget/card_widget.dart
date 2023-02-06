@@ -28,7 +28,12 @@ class _CardWidgetState extends State<CardWidget> {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.orange[200],
+                  backgroundColor: Colors.orange[100],
+                  child: Icon(
+                    Icons.account_balance_wallet_rounded,
+                    color: AppColor.orange,
+                    size: 30,
+                  ),
                 ),
                 const SizedBox(width: 15,),
 

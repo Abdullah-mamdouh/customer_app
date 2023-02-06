@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodio/const/colors.dart';
 import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
+import 'package:foodio/utils/helper.dart';
 import 'package:foodio/utils/widgets/appbar_widget.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
@@ -84,10 +85,8 @@ class ProfilePage extends StatelessWidget {
                       fit: StackFit.expand,
                       children: [
                         CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg',
-                            // BlocProvider.of<ProfileCubit>(context).imageURL
-                            //"http://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg",
+                          backgroundImage: AssetImage(
+                            Helper.getAssetName('person.jpg', 'real'),
                           ),
                         ),
                         Positioned(

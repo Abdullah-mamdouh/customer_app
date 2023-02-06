@@ -25,23 +25,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-    //   MaterialApp(
-    //   title: 'Flutter Demo',
-    //   debugShowCheckedModeBanner: false,
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.blue,
-    //   ),
-    //   home: HomePage()
-    // );
-    ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context , child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          routes:  {
+      //   MaterialApp(
+      //   title: 'Flutter Demo',
+      //   debugShowCheckedModeBanner: false,
+      //   theme: ThemeData(
+      //     primarySwatch: Colors.blue,
+      //   ),
+      //   home: HomePage()
+      // );
+      ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context , child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            /*routes:  {
             Routes.home: (context) => HomePage(),
             Routes.order: (context) => OrdersPage(),
             Routes.card: (context) => CardPage(),
@@ -50,17 +50,18 @@ class MyApp extends StatelessWidget {
             Routes.profile: (context) => ProfilePage(),
             Routes.favorite: (context) => FavoritePage(),
             Routes.search: (context) => SearchPage(),
-          },
-          // You can use the library anywhere in the app even in theme
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-           // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
-          home: child,
-        );
-      },
-      child:  OnBoarding(),
-    );
+          },*/
+            onGenerateRoute: AppRouter.generateRoutes,
+            // You can use the library anywhere in the app even in theme
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            ),
+            home: child,
+          );
+        },
+        // child:  OnBoarding(),
+      );
   }
 }
 

@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodio/utils/routes/routes.dart';
 
 import '../../../const/colors.dart';
+import '../../../utils/helper.dart';
 import '../../resturant_screen/resturant_page.dart';
 
 class PopularFood extends StatefulWidget {
@@ -15,65 +17,94 @@ class PopularFood extends StatefulWidget {
 class _PopularFoodState extends State<PopularFood> {
   @override
   Widget build(BuildContext context) {
-    return  ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()),
-        itemBuilder: (context, index) {
-          //final hotel = hotelsList[index];
-          return Padding(
-            padding: EdgeInsets.only(left: 15.w),
-            child: GestureDetector(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  const ResturantPage()),
-                );
-              },
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)
-                ),
-                child: Container(
-                  width:280.w,
-                  //margin: EdgeInsets.all(5),
-                  padding: EdgeInsets.all(5),
+    return  Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Popular Food Nearby",
+              style: Helper.getTheme(context).headline5!.copyWith(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+                //fontFamily: 'Metropolis',
+              ),
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  "View all",
+                  style: TextStyle(
+                      color: AppColor.welcomeColor,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500),
+                ))
+          ],
+        ),
 
-                  child: Row(
-                    children: [
-                      Container(
-                        //height: 100,
-                        width: MediaQuery.of(context).size.width * 0.25,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEToqDOfAtJqlcLhymiSOe6TQjz7wQLWHNq3gUcP79eg&s'
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
+        SizedBox(
+          height: 5.h,
+        ),
+        Container(
+            height: 100.h,
+            width: double.infinity,
+          padding: EdgeInsets.only(left: 10.w),
+          child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              itemBuilder: (context, index) {
+                //final hotel = hotelsList[index];
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, AppRoutes.resturantScreen);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) =>  const ResturantPage()),
+                    // );
+                  },
+                  child: Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: Container(
+                      width:280.w,
+                      //height: 150.h,
+                      //margin: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(5),
 
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            //color: AppColors.cardColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(12),
-                              bottomRight: Radius.circular(12),
+                      child: Row(
+                        children: [
+                          Container(
+                            //height: 150.h,
+                            width: MediaQuery.of(context).size.width * 0.25.w,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/real/hamburger2.png'
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.circular(15),
+
                             ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                //color: AppColors.cardColor,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  bottomRight: Radius.circular(12),
+                                ),
+                              ),
+                              child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Classic Burger',
                                       maxLines: 1,
@@ -102,23 +133,23 @@ class _PopularFoodState extends State<PopularFood> {
                                   ///
                                 ],
                               ),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-        // separatorBuilder: (context, index) => const SizedBox(
-        //   width: 10,
-        // ),
-        itemCount: 4);
+                );
+              },
+              // separatorBuilder: (context, index) => const SizedBox(
+              //   width: 10,
+              // ),
+              itemCount: 4),
+        ),
+      ],
+    );
   }
 }

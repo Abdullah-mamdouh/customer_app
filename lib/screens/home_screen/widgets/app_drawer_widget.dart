@@ -35,15 +35,16 @@ class AppDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                  'https://img.redro.pl/naklejki/user-profile-icon-vector-avatar-portrait-symbol-flat-shape-person-sign-logo-black-silhouette-isolated-on-white-background-700-253134053.jpg',
-                      ),radius: 30.h,
+                      backgroundImage: AssetImage(
+                        Helper.getAssetName('person.jpg', 'real'),
+                      ),
+                      radius: 30.h,
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
                     Text(
-                        'Mohamed Ahmed',
+                        'Nermin Ahmed',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -64,26 +65,27 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ///
+
           _createDrawerItem(icon: FontAwesomeIcons.houseChimney, text: 'Restaurants', onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.home),),
+              Navigator.pushNamed(context, AppRoutes.homeScreen),),
           _createDrawerItem(icon: Icons.event, text: 'Cuisines', onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.cuisines),),
+              Navigator.pushNamed(context, AppRoutes.cuisinesScreen),),
           _createDrawerItem(icon: FontAwesomeIcons.utensils, text: 'Dine In', onTap: () {}),
           // Divider(),
           _createDrawerItem(icon: FontAwesomeIcons.magnifyingGlass, text: 'Search',onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.search),),
+              Navigator.pushNamed(context, AppRoutes.searchScreen),),
           _createDrawerItem(icon: FontAwesomeIcons.heart, text: 'Favorite Restaurants',onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.favorite)),
+              Navigator.pushNamed(context, AppRoutes.favoriteScreen)),
           _createDrawerItem(
               icon: FontAwesomeIcons.wallet, text: 'Wallet',onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.wallet)),
+              Navigator.pushNamed(context, AppRoutes.walletScreen)),
           _createDrawerItem(icon: FontAwesomeIcons.cartShopping, text: 'Cart',onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.card)),
+              Navigator.pushNamed(context, AppRoutes.cardScreen)),
           _createDrawerItem(icon: FontAwesomeIcons.user, text: 'Profile',onTap: () =>
-              Navigator.pushReplacementNamed(context, Routes.profile),),
+              Navigator.pushNamed(context, AppRoutes.profileScreen),),
 
           _createDrawerItem(icon: FontAwesomeIcons.truck, text: 'Orders',onTap: () =>
-    Navigator.pushReplacementNamed(context, Routes.order),),
+    Navigator.pushNamed(context, AppRoutes.orderScreen),),
           _createDrawerItem(icon: FontAwesomeIcons.calendar, text: 'Dine-In Bookings',onTap: (){}),
           _createDrawerItem(icon: FontAwesomeIcons.globe, text: 'Language',onTap: (){}),
           _createDrawerItem(icon: FontAwesomeIcons.arrowRightFromBracket, text: 'Login',onTap: (){}),

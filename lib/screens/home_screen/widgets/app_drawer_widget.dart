@@ -35,9 +35,7 @@ class AppDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                  'https://img.redro.pl/naklejki/user-profile-icon-vector-avatar-portrait-symbol-flat-shape-person-sign-logo-black-silhouette-isolated-on-white-background-700-253134053.jpg',
-                      ),radius: 30.h,
+                      backgroundImage: AssetImage('assets/images/real/western2.jpg'),radius: 30.h,
                     ),
                     SizedBox(
                       height: 5.h,

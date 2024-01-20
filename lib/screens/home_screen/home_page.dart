@@ -2,7 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodio/const/styles.dart';
 import 'package:foodio/screens/card_screen/card_page.dart';
+import 'package:foodio/screens/home_screen/widgets/all_restaurants_widget.dart';
+import 'package:foodio/screens/home_screen/widgets/new_arrivals_widget.dart';
+import 'package:foodio/screens/home_screen/widgets/offers_widget.dart';
 import 'package:foodio/screens/home_screen/widgets/popular_food.dart';
+import 'package:foodio/screens/home_screen/widgets/popular_restaurant_widget.dart';
 import 'package:foodio/screens/orders_screen/orders_page.dart';
 import 'package:foodio/screens/resturant_screen/category_restuarants_page.dart';
 import 'package:foodio/screens/resturant_screen/resturant_page.dart';
@@ -388,37 +392,12 @@ class _HomePageState extends State<HomePage> {
                     height: 5.h,
                   ),
                   SizedBox(
-                    height: 95.h,
+                    height: 130.h,
                     width: double.infinity,
                     child: PopularFood(),
                   ),
-
-/*
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName("western.png", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Minute by tuk tuk",
-                  ),
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName("breakfast.png", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Cafe de Noir",
-                  ),
-                  RestaurantCard(
-                    image: Image.asset(
-                      Helper.getAssetName(""
-                          "bakery.png", "real"),
-                      fit: BoxFit.cover,
-                    ),
-                    name: "Bakes by Tella",
-                  ),
-*/
                   SizedBox(
-                    height:5.h,
+                    height:10.h,
                   ),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
@@ -446,95 +425,15 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  // SizedBox(
-                  //   height: 5.h,
-                  // ),
-                  //
-                  // Container(
-                  //   height: 210.h,
-                  //   width: double.infinity,
-                  //   padding: const EdgeInsets.only(left: 20),
-                  //   child: SingleChildScrollView(
-                  //     scrollDirection: Axis.horizontal,
-                  //     child: Row(
-                  //       children: [
-                  //         SizedBox(width: 20.w,),
-                  //         MostPopularCard(
-                  //           image: Image.asset(
-                  //             Helper.getAssetName("pizza4.png", "real"),
-                  //             fit: BoxFit.cover,
-                  //           ),
-                  //           name: "Cafe De Bambaa",
-                  //         ),
-                  //         SizedBox(
-                  //           width: 30,
-                  //         ),
-                  //         MostPopularCard(
-                  //           name: "Burger by Bella",
-                  //           image: Image.asset(
-                  //             Helper.getAssetName("dessert3.png", "real"),
-                  //             fit: BoxFit.cover,
-                  //           ),
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
+
                   Container(
                     height: 230.h,
                     width: double.infinity,
                     padding: EdgeInsets.only(left: 10.w),
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(
-                          parent: AlwaysScrollableScrollPhysics()),
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return NewArrivalsCard(
-                          name: "Hashim",
-                          image: "${Helper.getAssetName("pizza4.png", "real")}",
-                          location: '20 Pavelian Park',
-                          rate: "0 (0)",
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) =>  ResturantPage()),
-                            );
-                          },
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15.sp,
-                            color: Colors.black,
-                          ),
-                          widget: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: AppColor.welcomeColor,
-                                size: 20,
-                              ),
-                               SizedBox(
-                                width: 3.w,
-                              ),
-                              Text(
-                                "0 (0)",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 13.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                    child: NewArrivalsWidget(),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
@@ -562,77 +461,9 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    height: 230.h,
-                    width: double.infinity,
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(
-                          parent: AlwaysScrollableScrollPhysics()),
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return NewArrivalsCard(
-                            name: "Red Chili Restaurant",
-                            image:
-                                "${Helper.getAssetName("pizza4.png", "real")}",
-                            location: 'Nasr Sp Bus Stand, Chatberii Pronce',
-                            rate: "0 (0)",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) =>  ResturantPage()),
-                              );
-                            },
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 15.sp,
-                              color: Colors.black,
-                            ),
-                            widget: Padding(
-                              padding: EdgeInsets.only(right: 10.w),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "10off",
-                                    style: TextStyle(
-                                      color: AppColor.welcomeColor,
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w900,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.star,
-                                        color: AppColor.welcomeColor,
-                                        size: 20,
-                                      ),
-                                       SizedBox(
-                                        width: 3.w,
-                                      ),
-                                      Text(
-                                        "0 (0.0)",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 13.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ));
-                      },
-                    ),
-                  ),
+                  OffersWidget(),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
@@ -660,60 +491,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Container(
-                    height: 230.h,
-                    width: double.infinity,
-                    padding: EdgeInsets.only(left: 10.w),
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(
-                          parent: AlwaysScrollableScrollPhysics()),
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return NewArrivalsCard(
-                          name: "Flavours Restaurant",
-                          image: "${Helper.getAssetName("bakery.png", "real")}",
-                          location:
-                              '6129 Prince Muhammet ebn saad Chatberii Pronce',
-                          //rate: "4 (3.0)",
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) =>  ResturantPage()),
-                            );
-                          },
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14.sp,
-                            color: Colors.black,
-                          ),
-                          widget: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: AppColor.welcomeColor,
-                                size: 20,
-                              ),
-                               SizedBox(
-                                width: 3.w,
-                              ),
-                              Text(
-                                "4 (3.0)",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 13.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  PopularRestaurantWidget(),
                   SizedBox(
                     height: 15.h,
                   ),
@@ -731,77 +509,14 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                   SizedBox(
-                    height: 20.h,
+                    height: 10.h,
                   ),
-                  Container(
-                    padding:  EdgeInsets.symmetric(
-                      horizontal: 20.w,
-                    ),
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            // Navigator.of(context)
-                            //     .pushNamed(IndividualItem.routeName);
-                          },
-                          child: RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza3.png", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Hashim",
-                            color: AppColor.subTiteColor,
-                            icon: Icons.favorite_border_rounded,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("coffee.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Hash1",
-                          color: AppColor.subTiteColor,
-                          icon: Icons.favorite_border_rounded,
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            color: AppColor.subTiteColor,
-                            icon: Icons.favorite_border_rounded,
-                            name: "egrftt"),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        RecentItemCard(
-                            image: Image.asset(
-                              Helper.getAssetName("pizza.jpg", "real"),
-                              fit: BoxFit.cover,
-                            ),
-                            name: "Pizza Rush Hour",
-                          color: AppColor.subTiteColor,
-                          icon: Icons.favorite_border_rounded,
-                        ),
-                      ],
-                    ),
-                  )
+                  AllRestaurantsWidget(),
                 ],
               ),
             ),
           ),
-          /*Positioned(
-              bottom: 0,
-              left: 0,
-              child: CustomNavBar(
-                home: true,
-              )),*/
+
         ],
       ),
     );
@@ -902,106 +617,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class RecentItemCard extends StatelessWidget {
-  const RecentItemCard({
-    Key? key,
-    @required String? name,
-    @required Image? image,
-    @required IconData? icon,
-    @required Color? color,
-  })  : _name = name,
-        _image = image,
-        _icon = icon,
-  _color=color,
-        super(key: key);
-
-  final String? _name;
-  final Image? _image;
-  final IconData? _icon;
-  final Color? _color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: Container(
-            width: 90.w,
-            height: 80.h,
-            child: _image,
-          ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          child: Container(
-            height: 80.h,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        _name!,
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            _icon,
-                            size: 25,
-                            color: _color,
-
-                          )),
-                    ],
-                  ),
-                ),
-                Text(
-                 "gugol",
-                  style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.subTiteColor),
-                ),
-                Expanded(child: Row(
-                  children: [
-                    Icon(
-                      Icons.star,
-                      color: AppColor.welcomeColor,
-                      size: 20,
-                    ),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    Text(
-                      "0 (0.0)",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),)
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
-
 class MostPopularCard extends StatelessWidget {
   const MostPopularCard({
     Key? key,
@@ -1082,136 +697,6 @@ class MostPopularCard extends StatelessWidget {
             Text("Western Food"),
           ],
         )
-      ],
-    );
-  }
-}
-
-class NewArrivalsCard extends StatelessWidget {
-  const NewArrivalsCard({
-    Key? key,
-    @required String? name,
-    @required String? image,
-    @required String? location,
-    @required String? rate,
-    @required TextStyle? style,
-    @required Function()? onTap,
-    @required Widget? widget,
-  })  : _name = name,
-        _image = image,
-        _location = location,
-        _rate = rate,
-        _onTap = onTap,
-        _widget = widget,
-        _style = style,
-        super(key: key);
-
-  final String? _name;
-  final String? _image;
-  final String? _location;
-  final String? _rate;
-  final TextStyle? _style;
-  final void Function()? _onTap;
-  final Widget? _widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: _onTap,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: Container(
-              width: 280.w,
-              height: 210.h,
-              decoration: BoxDecoration(
-                color: Color(0xffFFFFFF),
-                borderRadius: BorderRadius.circular(
-                  25,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.25),
-                    offset: Offset(2, 2),
-                    blurRadius: 8.0,
-                    spreadRadius: 4, // Shadow position
-                  ),
-                ],
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    height: 125.h,
-                    width: 280.w,
-                    padding: EdgeInsets.all(1),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(_image!),
-                        fit: BoxFit.fill,
-                      ),
-                      color: Color(0xffFFFFFF),
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0, 0),
-                          blurRadius: 4.0,
-                          spreadRadius: 2, // Shadow position
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(top: 135.h, left: 15.w, bottom: 10.h),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(_name!,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: _style!),
-                        //SizedBox(height: 3.h,),
-
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.location_on,
-                                color: AppColor.subTiteColor,
-                                size: 18,
-                              ),
-                              const SizedBox(
-                                width: 3,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  _location!,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: Color(0xFF555354),
-                                    //AppColor.subTiteColor,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        //SizedBox(height: 3.h,),
-                        _widget!,
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }

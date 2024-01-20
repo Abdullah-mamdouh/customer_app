@@ -48,8 +48,8 @@ class _PopularFoodState extends State<PopularFood> {
                         width: MediaQuery.of(context).size.width * 0.25,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEToqDOfAtJqlcLhymiSOe6TQjz7wQLWHNq3gUcP79eg&s'
+                            image: AssetImage(
+                              'assets/images/real/rice.jpg',
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -116,9 +116,6 @@ class _PopularFoodState extends State<PopularFood> {
             ),
           );
         },
-        // separatorBuilder: (context, index) => const SizedBox(
-        //   width: 10,
-        // ),
         itemCount: 4);
   }
 }

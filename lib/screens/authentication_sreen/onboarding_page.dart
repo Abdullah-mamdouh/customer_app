@@ -19,13 +19,13 @@ class OnBoarding extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10.h, right: 20.w),
+                padding: EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                        width: 60.w,
-                        height: 28.0.h,
+                        width: 70.w,
+                        height: 45.0.h,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35.0),
                             border: Border.all(
@@ -35,8 +35,7 @@ class OnBoarding extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),
-                              fixedSize:
-                                  Size(MediaQuery.of(context).size.width, 50),
+                              fixedSize: Size(60, 50),
                               backgroundColor: Colors.white,
                               shadowColor: Colors.black,
                               elevation: 0,
@@ -49,31 +48,13 @@ class OnBoarding extends StatelessWidget {
                                   builder: (context) => HomePage()),
                             );
                           },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 0.0.w),
-                            child: Text(
-                              'Skip',
-                              style: TextStyle(
-                                  color: AppColor.welcomeColor,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500),
-                            ),
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: AppColor.welcomeColor,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500),
                           ),
-                          // child: MaterialButton(
-                          //   height: 40.0.h,
-                          //   onPressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(builder: (context) => HomePage()),
-                          //     );
-                          //   },
-                          //
-                          //   child: const Text(
-                          //     'Skip',
-                          //     style: TextStyle(color: AppColor.welcomeColor, fontSize: 20),
-                          //   ),
-                          //   color: Colors.white,
-                          // ),
                           ///
                         )),
                   ],

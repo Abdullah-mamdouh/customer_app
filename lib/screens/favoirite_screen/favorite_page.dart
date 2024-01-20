@@ -10,6 +10,7 @@ import 'package:foodio/screens/resturant_screen/category_restuarants_page.dart';
 import 'package:foodio/utils/helper.dart';
 
 import '../../utils/routes/routes.dart';
+import '../../utils/widgets/recent_card_widget.dart';
 import '../home_screen/home_page.dart';
 class FavoritePage extends StatelessWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -90,7 +91,7 @@ class FavoritePage extends StatelessWidget {
           return
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
-              child: RecentItemCard(
+              child: RecentCard(
                   image: Image.asset(
                     Helper.getAssetName("coffee.jpg", "real"),
                     fit: BoxFit.cover,

@@ -87,7 +87,7 @@ class _CardPageState extends State<CardPage> {
                   // padding: const EdgeInsets.symmetric(
                   //   vertical: 5,
                   // ),
-                  itemCount: 2,
+                  itemCount: 1,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       //height: 115.h,
@@ -421,86 +421,13 @@ class _CardPageState extends State<CardPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10.h,),
-                // Container(
-                //   child: Column(
-                //     children: [
-                //       Text(
-                //         'Delivery Option',
-                //         style: TextStyle(
-                //             fontSize: 14,
-                //             fontWeight: FontWeight.w600,
-                //             color: AppColor.primary),
-                //       ),
-                //       const SizedBox(
-                //         height: 10,
-                //       ),
-                //       Container(
-                //           //height: 50,
-                //           child:
-                //               /*ListView.separated(
-                //             scrollDirection: Axis.horizontal,
-                //             itemBuilder: (context, index) {
-                //               return radioAndText(index, orderOptions[index]);
-                //             },
-                //             separatorBuilder: (context, index) => const SizedBox(
-                //                   height: 10,
-                //                 ),
-                //             itemCount: 2),*/
-                //               Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           radioAndText(0, orderOptions[0]),
-                //           radioAndText(1, orderOptions[1])
-                //         ],
-                //       )),
-                //       DividerWidget(),
-                //       const SizedBox(
-                //         height: 15,
-                //       ),
-                //       priceOptions(),
-                //       priceOptions(),
-                //       priceOptions(),
-                //     ],
-                //   ),
-                // ),
-                // Container(
-                //   height: Helper.getScreenHeight(context)*0.9,
-                //   child: Column(
-                //     children: [
-                //
-                //     ],
-                //   ),
-                // ),
-                /*Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(text: 'Total ',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500), ),
-                      TextSpan(
-                        text: '\$105.00',
-                        style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Text('PROCEED TO CHECKOUT',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),),
-              ],
-            ),
-          ),),
-          */
               ],
             ),
           ),
         ),
         bottomNavigationBar: Container(
           height: 55.h,
-          color: Color(0xFFe8073f),
+          color: AppColor.welcomeColor,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               //foregroundColor: Colors.white,
@@ -512,12 +439,12 @@ class _CardPageState extends State<CardPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Total : T100.00",
-                  style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w300),
+                  "Total : T100.00 ",
+                  style: TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w300,color: Colors.white),
                 ),
                 Text(
                   "PROCEED TO CHECKOUT",
-                  style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.w500,color: Colors.white),
                 )
               ],
             ),

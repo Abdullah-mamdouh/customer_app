@@ -25,8 +25,8 @@ class OnBoarding extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                        width: 65.w,
-                        height: 35.0.h,
+                        width: 70.w,
+                        height: 45.0.h,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35.0),
                             border: Border.all(
@@ -36,8 +36,7 @@ class OnBoarding extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),
-                              fixedSize:
-                              Size(MediaQuery.of(context).size.width, 50),
+                              fixedSize: Size(60, 50),
                               backgroundColor: Colors.white,
                               shadowColor: Colors.black,
                               elevation: 0,
@@ -51,31 +50,13 @@ class OnBoarding extends StatelessWidget {
                             //       builder: (context) => HomePage()),
                             // );
                           },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 0.0.w),
-                            child: Text(
-                              'Skip',
-                              style: TextStyle(
-                                  color: AppColor.welcomeColor,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500),
-                            ),
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: AppColor.welcomeColor,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500),
                           ),
-                          // child: MaterialButton(
-                          //   height: 40.0.h,
-                          //   onPressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(builder: (context) => HomePage()),
-                          //     );
-                          //   },
-                          //
-                          //   child: const Text(
-                          //     'Skip',
-                          //     style: TextStyle(color: AppColor.welcomeColor, fontSize: 20),
-                          //   ),
-                          //   color: Colors.white,
-                          // ),
                           ///
                         )),
                   ],
@@ -134,7 +115,7 @@ class OnBoarding extends StatelessWidget {
                   text: 'Log In',
                   backgroundColor: AppColor.welcomeColor,
                   style:
-                  TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color:Colors.white),
                   onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.loginScreen);
                     // Navigator.push(

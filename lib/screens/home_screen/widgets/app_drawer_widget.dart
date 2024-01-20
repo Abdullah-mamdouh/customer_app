@@ -35,6 +35,7 @@ class AppDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CircleAvatar(
+                      // backgroundImage: AssetImage('assets/images/real/western2.jpg'),radius: 30.h,
                       backgroundImage: AssetImage(
                         Helper.getAssetName('person.jpg', 'real'),
                       ),
@@ -44,7 +45,7 @@ class AppDrawer extends StatelessWidget {
                       height: 5.h,
                     ),
                     Text(
-                        'Nermin Ahmed',
+                        'Mohamed Ahmed',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 14.sp,
@@ -67,25 +68,25 @@ class AppDrawer extends StatelessWidget {
           ///
 
           _createDrawerItem(icon: FontAwesomeIcons.houseChimney, text: 'Restaurants', onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.homeScreen),),
+              Navigator.pushReplacementNamed(context, Routes.home),),
           _createDrawerItem(icon: Icons.event, text: 'Cuisines', onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.cuisinesScreen),),
+              Navigator.pushReplacementNamed(context, Routes.cuisines),),
           _createDrawerItem(icon: FontAwesomeIcons.utensils, text: 'Dine In', onTap: () {}),
           // Divider(),
           _createDrawerItem(icon: FontAwesomeIcons.magnifyingGlass, text: 'Search',onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.searchScreen),),
+              Navigator.pushReplacementNamed(context, Routes.search),),
           _createDrawerItem(icon: FontAwesomeIcons.heart, text: 'Favorite Restaurants',onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.favoriteScreen)),
+              Navigator.pushReplacementNamed(context, Routes.favorite)),
           _createDrawerItem(
               icon: FontAwesomeIcons.wallet, text: 'Wallet',onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.walletScreen)),
+              Navigator.pushReplacementNamed(context, Routes.wallet)),
           _createDrawerItem(icon: FontAwesomeIcons.cartShopping, text: 'Cart',onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.cardScreen)),
+              Navigator.pushReplacementNamed(context, Routes.card)),
           _createDrawerItem(icon: FontAwesomeIcons.user, text: 'Profile',onTap: () =>
-              Navigator.pushNamed(context, AppRoutes.profileScreen),),
+              Navigator.pushReplacementNamed(context, Routes.profile),),
 
           _createDrawerItem(icon: FontAwesomeIcons.truck, text: 'Orders',onTap: () =>
-    Navigator.pushNamed(context, AppRoutes.orderScreen),),
+    Navigator.pushReplacementNamed(context, Routes.order),),
           _createDrawerItem(icon: FontAwesomeIcons.calendar, text: 'Dine-In Bookings',onTap: (){}),
           _createDrawerItem(icon: FontAwesomeIcons.globe, text: 'Language',onTap: (){}),
           _createDrawerItem(icon: FontAwesomeIcons.arrowRightFromBracket, text: 'Login',onTap: (){}),

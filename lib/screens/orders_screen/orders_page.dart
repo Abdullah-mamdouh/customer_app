@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:foodio/screens/orders_screen/widgets/outline_button_widget.dart';
 
 import '../../const/colors.dart';
 import 'package:foodio/screens/home_screen/widgets/app_drawer_widget.dart';
@@ -88,7 +89,7 @@ class _OrdersPageState extends State<OrdersPage> {
           return Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
               child: Container(
-                height: 175.h,
+                //height: 200.h,
                 padding: EdgeInsets.all(10),
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -107,140 +108,89 @@ class _OrdersPageState extends State<OrdersPage> {
                 ),
                 child: Column(
                   children: [
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 70.h,
-                            width: 80.w,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/real/pizza2.png'),
-                                  fit: BoxFit.fill,
-                                ),
-                                borderRadius: BorderRadius.circular(12)),
-                          ),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'ORDER ID:',
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF9191a3)),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Text(
-                                  'uhvsgiisjkiygsmlojs',
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Text(
-                                  'The Basil Pizza',
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Text(
-                                  'Order Piaced | Aug 5, 2022',
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(0xFF555354),
-                                    //Color(0xFF716f70),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Text(
-                                  'T40.00',
-                                  style: TextStyle(
-                                      fontSize: 18.sp,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFFd31242)),
-                                ),
-                              ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 70.h,
+                          width: 80.w,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/images/real/pizza2.png'),
+                                fit: BoxFit.fill,
+                              ),
+                              borderRadius: BorderRadius.circular(12)),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'ORDER ID:',
+                              style: TextStyle(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF9191a3)),
                             ),
-                          ),
-                        ],
-                      ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Text(
+                              'uhvsg iisj kiygs mlojs',
+                              maxLines: 1,
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black),
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Text(
+                              'The Basil Pizza',
+                              maxLines: 1,
+                              style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black),
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Text(
+                              'Order Piaced | Aug 5, 2022',
+                              maxLines: 1,
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF555354),
+                                //Color(0xFF716f70),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Text(
+                              'T40.00',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.welcomeColor),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
+                    SizedBox(height: 8.h,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 35.h,
-                          width: 140.w,
-                          child: OutlinedButton(
-                            onPressed: () {},
-                            style: OutlinedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              side: BorderSide(
-                                width: 1,
-                                color: Color(0xFFd31242),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                vertical: 5,
-                                horizontal: 15,
-                              ),
-                            ),
-                            child: Text(
-                              'REORDER',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 140.w,
-                          height: 35.h,
-                          child: OutlinedButton(
-                            onPressed: () {},
-                            style: OutlinedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              side:
-                                  BorderSide(width: 1, color: AppColor.primary),
-                              padding: EdgeInsets.symmetric(
-                                vertical: 5,
-                                horizontal: 15,
-                              ),
-                            ),
-                            child: Text(
-                              'RATE ORDER',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        )
+                        OutlineButtonWidget(buttonName: 'REORDER', outlineColor: AppColor.welcomeColor),
+                        OutlineButtonWidget(buttonName: 'RATE ORDER', outlineColor: AppColor.primary),
                       ],
                     ),
                   ],

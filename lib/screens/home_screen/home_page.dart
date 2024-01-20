@@ -66,11 +66,13 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w500,
-              fontSize: 16.sp),
+              fontSize: 16.sp
+          ),
         ),
         elevation: 0,
         backgroundColor: Colors.white,
         //actionsIconTheme: IconThemeData(),
+
 
         actions: [
           IconButton(
@@ -118,35 +120,11 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(
             horizontal: 20.w,
+            vertical: 20.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SizedBox(
-              //   height: 20,
-              // ),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(
-              //     horizontal: 20,
-              //   ),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       Text(
-              //         "Good morning Akila!",
-              //         style: Helper.getTheme(context).headline5,
-              //       ),
-              //       Image.asset(Helper.getAssetName("cart.png", "virtual"))
-              //     ],
-              //   ),
-              // ),
-
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(
-              //     horizontal: 20,
-              //   ),
-              //   child: Text("Deilivering to"),
-              // ),
               DropdownButtonHideUnderline(
                 child: SizedBox(
                   //width: 266,

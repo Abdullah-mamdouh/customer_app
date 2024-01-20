@@ -19,7 +19,7 @@ class OnBoarding extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(top: 10.h, right: 20.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -42,11 +42,12 @@ class OnBoarding extends StatelessWidget {
                               side: BorderSide(
                                   color: AppColor.welcomeColor, width: 0.2)),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()),
-                            );
+                            Navigator.pushNamed(context, AppRoutes.homeScreen);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => HomePage()),
+                            // );
                           },
                           child: Text(
                             'Skip',
@@ -113,12 +114,13 @@ class OnBoarding extends StatelessWidget {
                   text: 'Log In',
                   backgroundColor: AppColor.welcomeColor,
                   style:
-                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color:Colors.white),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginView()),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.loginScreen);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => LoginView()),
+                    // );
                   },
                 ),
               ),
@@ -132,10 +134,11 @@ class OnBoarding extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupPage()),
-                      );
+                      Navigator.pushNamed(context, AppRoutes.registerScreen);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => SignupPage()),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,

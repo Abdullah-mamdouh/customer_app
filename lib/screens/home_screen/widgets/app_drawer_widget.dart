@@ -35,7 +35,11 @@ class AppDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/real/western2.jpg'),radius: 30.h,
+                      // backgroundImage: AssetImage('assets/images/real/western2.jpg'),radius: 30.h,
+                      backgroundImage: AssetImage(
+                        Helper.getAssetName('person.jpg', 'real'),
+                      ),
+                      radius: 30.h,
                     ),
                     SizedBox(
                       height: 5.h,
@@ -62,6 +66,7 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ///
+
           _createDrawerItem(icon: FontAwesomeIcons.houseChimney, text: 'Restaurants', onTap: () =>
               Navigator.pushReplacementNamed(context, Routes.home),),
           _createDrawerItem(icon: Icons.event, text: 'Cuisines', onTap: () =>

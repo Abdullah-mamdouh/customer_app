@@ -217,7 +217,7 @@ class _CardPageState extends State<CardPage> {
                     );
                   },
                   separatorBuilder: (context, index) =>  SizedBox(
-                    height: 5.h,
+                    height: 8.h,
                   ),
                 ),
 
@@ -226,9 +226,9 @@ class _CardPageState extends State<CardPage> {
                 ),
 
                 Container(
-                  height: 65.h,
+                  // height: 65.h,
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 10.h),
                   decoration: BoxDecoration(
                     color: Color(0xffFFFFFF),
                     borderRadius: BorderRadius.circular(
@@ -301,7 +301,7 @@ class _CardPageState extends State<CardPage> {
                 ),
                 Container(
                   height: 65.h,
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w,),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xffFFFFFF),
@@ -363,7 +363,6 @@ class _CardPageState extends State<CardPage> {
                   height: 20.h,
                 ),
                 Container(
-                  //height: 420.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xffFFFFFF),

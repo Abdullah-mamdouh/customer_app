@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../const/colors.dart';
+import '../../utils/routes/routes.dart';
 import '../../utils/widgets/button_with_widget.dart';
 import '../../utils/widgets/custom_input_field.dart';
 import '../../utils/widgets/main_button.dart';
@@ -32,12 +33,12 @@ class LoginView extends StatelessWidget {
                 SizedBox(height: 10.h,),
 
                 Text(
-                  'Sign In',
-                  style: TextStyle(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.welcomeColor
-                  )
+                    'Sign In',
+                    style: TextStyle(
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.welcomeColor
+                    )
                 ),
                 SizedBox(height: 15.h),
                 // Row(
@@ -73,10 +74,10 @@ class LoginView extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                      onPressed: () {},
-                      child:  Text('Forgot Password?',style: TextStyle(
-                          color: Color(0xff19a8e8), fontWeight: FontWeight.w600),
-                  ),
+                    onPressed: () {},
+                    child:  Text('Forgot Password?',style: TextStyle(
+                        color: Color(0xff19a8e8), fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
 
@@ -89,10 +90,11 @@ class LoginView extends StatelessWidget {
                     style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
 
                     onPressed: ()  {
+                      Navigator.pushNamed(context, AppRoutes.homeScreen);
                     },
                   ),
                 ),
-                SizedBox(height: 30.h,),
+                SizedBox(height: 20.h,),
 
                 Center(
                   child: Text(
@@ -104,7 +106,7 @@ class LoginView extends StatelessWidget {
                       )
                   ),
                 ),
-                SizedBox(height: 25.h,),
+                SizedBox(height: 10.h,),
                 // Padding(
                 //   padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                 //   child: MainButton(
@@ -136,68 +138,66 @@ class LoginView extends StatelessWidget {
                 //   onPressed: ()  {
                 //   },
                 // ),
-            //     Padding(
-            //   padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
-            //   child: SizedBox(
-            //     height: 50,
-            //     width: double.infinity,
-            //     child: ElevatedButton(
-            //       onPressed: (){},
-            //       style: ElevatedButton.styleFrom(
-            //         backgroundColor: Colors.white,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(24),
-            //            side: BorderSide(color: AppColor.welcomeColor,)
-            //         ),
-            //
-            //         elevation: 0,
-            //       ),
-            //       child: Text('Login with phone number', style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500, color: AppColor.welcomeColor),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            //     Padding(
-            //       padding:  EdgeInsets.symmetric(horizontal: 18.0.w),
-            //       child: LoginOrSignupWith(
-            //         tittle: 'Login with phone number',
-            //         style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500,color: AppColor.welcomeColor),
-            //         iconColor: AppColor.welcomeColor,
-            //         icon: Icons.call,
-            //         onPressed: () {},
-            //         backgroundColor:  Colors.white,
-            //       ),
-            //     ),
+                //     Padding(
+                //   padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
+                //   child: SizedBox(
+                //     height: 50,
+                //     width: double.infinity,
+                //     child: ElevatedButton(
+                //       onPressed: (){},
+                //       style: ElevatedButton.styleFrom(
+                //         backgroundColor: Colors.white,
+                //         shape: RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.circular(24),
+                //            side: BorderSide(color: AppColor.welcomeColor,)
+                //         ),
+                //
+                //         elevation: 0,
+                //       ),
+                //       child: Text('Login with phone number', style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500, color: AppColor.welcomeColor),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                //     Padding(
+                //       padding:  EdgeInsets.symmetric(horizontal: 18.0.w),
+                //       child: LoginOrSignupWith(
+                //         tittle: 'Login with phone number',
+                //         style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500,color: AppColor.welcomeColor),
+                //         iconColor: AppColor.welcomeColor,
+                //         icon: Icons.call,
+                //         onPressed: () {},
+                //         backgroundColor:  Colors.white,
+                //       ),
+                //     ),
                 Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 18.0.w),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      fixedSize: Size(MediaQuery.of(context).size.width, 50),
-                      backgroundColor: Colors.white,
-                      shadowColor: Colors.black,
-                      elevation: 0,
-                      side: BorderSide(color: AppColor.welcomeColor)
+                        shape: const StadiumBorder(),
+                        fixedSize: Size(MediaQuery.of(context).size.width, 38.h,//50
+                        ),
+                        backgroundColor: Colors.white,
+                        shadowColor: Colors.black,
+                        elevation: 0,
+                        side: BorderSide(color: AppColor.welcomeColor)
                     ),
                     onPressed: (){},
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0.0.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(Icons.call,color: AppColor.welcomeColor,),
-                          // SizedBox(
-                          //   width: 30.w,
-                          // ),
-                          ///
-                          Center(
-                              child: Text(
-                                'Login with phone number',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color: AppColor.welcomeColor),
-                              )),
-                        ],
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.call,color: AppColor.welcomeColor,),
+                        // SizedBox(
+                        //   width: 30.w,
+                        // ),
+                        ///
+                        Center(
+                            child: Text(
+                              'Login with phone number',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color: AppColor.welcomeColor),
+                            )),
+                      ],
                     ),
                   ),
                 )

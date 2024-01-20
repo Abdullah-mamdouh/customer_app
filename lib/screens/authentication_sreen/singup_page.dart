@@ -50,11 +50,7 @@ class SignupPage extends StatelessWidget {
                       fit: StackFit.expand,
                       children: [
                         CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            'https://img.redro.pl/naklejki/user-profile-icon-vector-avatar-portrait-symbol-flat-shape-person-sign-logo-black-silhouette-isolated-on-white-background-700-253134053.jpg'
-                            // BlocProvider.of<ProfileCubit>(context).imageURL
-                            //"http://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg",
-                          ),
+                          backgroundImage: AssetImage('assets/images/real/pizza2.png'),radius: 30,
                         ),
                         ///
                         Positioned(
@@ -147,30 +143,27 @@ class SignupPage extends StatelessWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
-                        fixedSize: Size(MediaQuery.of(context).size.width, 50),
+                        fixedSize: Size(MediaQuery.of(context).size.width, 38.h),
                         backgroundColor: Colors.white,
                         shadowColor: Colors.black,
                         elevation: 0,
                         side: BorderSide(color: AppColor.welcomeColor)
                     ),
                     onPressed: (){},
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 0.0.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(Icons.call,color: AppColor.welcomeColor,),
-                          // SizedBox(
-                          //   width: 30.w,
-                          // ),
-                          Center(
-                              child: Text(
-                                'Sign up with phone number',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500,color: AppColor.welcomeColor),
-                              )),
-                        ],
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.call,color: AppColor.welcomeColor,),
+                        // SizedBox(
+                        //   width: 30.w,
+                        // ),
+                        Center(
+                            child: Text(
+                              'Sign up with phone number',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500,color: AppColor.welcomeColor),
+                            )),
+                      ],
                     ),
                   ),
                 )

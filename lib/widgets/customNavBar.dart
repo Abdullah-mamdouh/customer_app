@@ -118,7 +118,7 @@ class CustomNavBar extends StatelessWidget {
                                       "user_filled.png", "virtual"),
                                 )
                               : Image.asset(
-                                  Helper.getAssetName("user.png", "virtual"),
+                                  Helper.getAssetName("person.jpg", "virtual"),
                                 ),
                           profile
                               ? Text("Profile",

@@ -6,6 +6,7 @@ import 'package:foodio/screens/authentication_sreen/login_page.dart';
 import 'package:foodio/screens/authentication_sreen/singup_page.dart';
 import 'package:foodio/screens/home_screen/home_page.dart';
 
+import '../../utils/routes/routes.dart';
 import '../../utils/widgets/main_button.dart';
 
 class OnBoarding extends StatelessWidget {
